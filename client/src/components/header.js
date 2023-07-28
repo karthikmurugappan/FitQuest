@@ -33,7 +33,7 @@ function NavBar() {
                 className={currentPage === 'SignUp' ? 'nav-link active' : 'nav-link'}
                 to="/signup"
             >
-                sign up
+                Sign up
             </Link>
             <Link
                 onClick={() => handlePageChange('Profile')}
@@ -41,6 +41,13 @@ function NavBar() {
                 to="/profile"
             >
                 Profile
+            </Link>
+            <Link
+                onClick={() => handlePageChange('Login')}
+                className={currentPage === 'Login' ? 'nav-link active' : 'nav-link'}
+                to="/login"
+            >
+                Login
             </Link>
         </Nav>
     );
