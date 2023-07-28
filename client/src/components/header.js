@@ -2,7 +2,6 @@ import Nav from 'react-bootstrap/Nav';
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-
 function NavBar() {
     const [currentPage, setCurrentPage] = useState('Home');
     const location = useLocation();
@@ -23,7 +22,7 @@ function NavBar() {
         >
             <Link
                 onClick={() => handlePageChange('Home')}
-                className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}
+                className={currentPage === 'Home' ? 'nav-link active' : 'rpgui-button'}
                 to="/"
             >
                 Home
