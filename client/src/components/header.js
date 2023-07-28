@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 
+
 function NavBar() {
     const [currentPage, setCurrentPage] = useState('Home');
     const location = useLocation();
