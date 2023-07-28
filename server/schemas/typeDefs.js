@@ -26,8 +26,10 @@ const typeDefs = gql`
         exercises: [Exercise]
     }
 
-    type Query {
-        
+    type Query {}
+
+    type Mutation {}
+
 
 `;
 
