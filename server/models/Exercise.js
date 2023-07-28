@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+
+
 const exerciseSchema = new Schema({
     exercise_name: {
         type: String,
