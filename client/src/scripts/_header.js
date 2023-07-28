@@ -1,1 +1,1 @@
-RPGUI = (function() {
+// RPGUI = (function() {
