@@ -1,0 +1,182 @@
+[
+    {
+      "type": "Strength Exercise",
+      "exercise_name": "Squats",
+      "description": "Targets quadriceps, hamstrings, glutes, and core.",
+      "points": 8
+    },
+    {
+      "type": "Strength Exercise",
+      "exercise_name": "Deadlifts",
+      "description": "Works on the posterior chain, including hamstrings, glutes, and lower back.",
+      "points": 5
+    },
+    {
+      "type": "Strength Exercise",
+      "exercise_name": "Push-ups",
+      "description": "Engages chest, shoulders, triceps, and core.",
+      "points": 7
+    },
+    {
+      "type": "Strength Exercise",
+      "exercise_name": "Pull-ups/Chin-ups",
+      "description": "Focuses on the back, biceps, and shoulders.",
+      "points": 9
+    },
+    {
+      "type": "Strength Exercise",
+      "exercise_name": "Lunges",
+      "description": "Works on quadriceps, hamstrings, and glutes.",
+      "points": 7
+    },
+    {
+      "type": "Strength Exercise",
+      "exercise_name": "Dips",
+      "description": "Targets triceps, shoulders, and chest.",
+      "points": 10
+    },
+    {
+      "type": "Strength Exercise",
+      "exercise_name": "Bench Press",
+      "description": "Engages chest, shoulders, and triceps.",
+      "points": 8
+    },
+    {
+      "type": "Strength Exercise",
+      "exercise_name": "Bent-over Rows",
+      "description": "Focuses on the upper back, lats, and biceps.",
+      "points": 6
+    },
+    {
+      "type": "Strength Exercise",
+      "exercise_name": "Shoulder Press",
+      "description": "Works on the shoulders and triceps.",
+      "points": 5
+    },
+    {
+      "type": "Strength Exercise",
+      "exercise_name": "Planks",
+      "description": "Engages the core, shoulders, and back.",
+      "points": 8
+    },
+    {
+      "type": "Stamina (Cardiovascular) Exercise",
+      "exercise_name": "Running",
+      "description": "Great for overall cardiovascular fitness.",
+      "points": 10
+    },
+    {
+      "type": "Stamina (Cardiovascular) Exercise",
+      "exercise_name": "Cycling",
+      "description": "Low-impact and effective for stamina.",
+      "points": 8
+    },
+    {
+      "type": "Stamina (Cardiovascular) Exercise",
+      "exercise_name": "Swimming",
+      "description": "Full-body workout with minimal joint stress.",
+      "points": 9
+    },
+    {
+      "type": "Stamina (Cardiovascular) Exercise",
+      "exercise_name": "Jump Rope",
+      "description": "Excellent for quick bursts of cardio.",
+      "points": 10
+    },
+    {
+      "type": "Stamina (Cardiovascular) Exercise",
+      "exercise_name": "Rowing",
+      "description": "Engages upper and lower body while providing a cardio challenge.",
+      "points": 7
+    },
+    {
+      "type": "Stamina (Cardiovascular) Exercise",
+      "exercise_name": "High-Intensity Interval Training (HIIT)",
+      "description": "Alternating periods of high-intensity exercise with short recovery periods.",
+      "points": 10
+    },
+    {
+      "type": "Stamina (Cardiovascular) Exercise",
+      "exercise_name": "Stair Climbing",
+      "description": "Effective for building stamina and leg strength.",
+      "points": 8
+    },
+    {
+      "type": "Stamina (Cardiovascular) Exercise",
+      "exercise_name": "Dance Aerobics",
+      "description": "Fun way to improve cardiovascular endurance.",
+      "points": 7
+    },
+    {
+      "type": "Stamina (Cardiovascular) Exercise",
+      "exercise_name": "Boxing or Kickboxing",
+      "description": "Combines cardio with strength and agility.",
+      "points": 7
+    },
+    {
+      "type": "Stamina (Cardiovascular) Exercise",
+      "exercise_name": "Circuit Training",
+      "description": "Rotating through various exercises with minimal rest in between.",
+      "points": 9
+    },
+    {
+      "type": "Agility Exercise",
+      "exercise_name": "Agility Ladder Drills",
+      "description": "Quick footwork exercises through a ladder on the ground.",
+      "points": 7
+    },
+    {
+      "type": "Agility Exercise",
+      "exercise_name": "Cone Drills",
+      "description": "Set up cones to change direction rapidly while moving.",
+      "points": 6
+    },
+    {
+      "type": "Agility Exercise",
+      "exercise_name": "Shuttle Runs",
+      "description": "Sprint back and forth between two points.",
+      "points": 9
+    },
+    {
+      "type": "Agility Exercise",
+      "exercise_name": "Plyometric Jumps",
+      "description": "Incorporate box jumps, broad jumps, and squat jumps to improve explosive power.",
+      "points": 10
+    },
+    {
+      "type": "Agility Exercise",
+      "exercise_name": "Speed Ladder Drills",
+      "description": "Combine ladder drills with lateral movements for agility and coordination.",
+      "points": 10
+    },
+    {
+      "type": "Agility Exercise",
+      "exercise_name": "Dot Drills",
+      "description": "Jumping in specific patterns on a marked surface.",
+      "points": 7
+    },
+    {
+      "type": "Agility Exercise",
+      "exercise_name": "Zig-Zag Sprints",
+      "description": "Sprinting in a zig-zag pattern.",
+      "points": 6
+    },
+    {
+      "type": "Agility Exercise",
+      "exercise_name": "Hurdle Jumps",
+      "description": "Jumping over hurdles or obstacles.",
+      "points": 8
+    },
+    {
+      "type": "Agility Exercise",
+      "exercise_name": "Reaction Ball Drills",
+      "description": "Bouncing a ball and reacting quickly to its unpredictable direction.",
+      "points": 5
+    },
+    {
+      "type": "Agility Exercise",
+      "exercise_name": "Balance Exercises",
+      "description": "Incorporate stability exercises to enhance overall agility.",
+      "points": 7
+    }
+   ]
