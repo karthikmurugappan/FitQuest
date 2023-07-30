@@ -26,7 +26,7 @@ function NavBar() {
             <h1>FitQuest</h1>
             <Link
                 onClick={() => handlePageChange('Home')}
-                className={currentPage === 'Home' ? 'rpgui-button' : 'rpgui-button'}
+                className={currentPage === 'Home' ? 'nav-link active' : 'rpgui-button'}
                 to="/"
             >
                 Home
