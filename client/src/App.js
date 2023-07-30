@@ -8,6 +8,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 // import './App.css';
+import './styles/app.scss';
 import NavBar from './components/header.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -44,7 +45,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
       <NavBar />
-      <h1>FitQuest</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
