@@ -3,21 +3,21 @@ import React, { useState } from 'react';
 // Uses Link for navigating to the home page.
 import { Link } from 'react-router-dom';
 
-// Uses the ADD_PROFILE mutation to create the user.
+// Uses the ADD_USER mutation to create the user.
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
 // Auth function uses the token to authorize the user.
-import Auth from '../utils/auth';
+import AuthService from '../utils/auth';
 
 // SignUp function starts with empty values for the elements.
 const SignUp = () => {
   const [formState, setFormState] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
   });
-  const [addProfile, { error, data }] = useMutation(ADD_USER);
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   // This updates the state based on changes to the form.
   const handleChange = (event) => {
@@ -32,14 +32,13 @@ const SignUp = () => {
   // This function submits the form.
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
-      const { data } = await addProfile({
+      const { data } = await addUser({
         variables: { ...formState },
       });
 
-      Auth.login(data.addProfile.token);
+      AuthService.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -59,9 +58,9 @@ const SignUp = () => {
             <input
               className="form-input"
               placeholder="Your username"
-              name="name"
+              name="username"
               type="text"
-              value={formState.name}
+              value={formState.username}
               onChange={handleChange}
             />
             <input
