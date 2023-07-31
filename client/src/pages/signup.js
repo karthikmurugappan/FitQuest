@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import NavBar from '../components/header';
 // Uses Link for navigating to the home page.
 import { Link } from 'react-router-dom';
 
@@ -47,6 +47,7 @@ const SignUp = () => {
   // The function returns this html and sets the values in the database to the values entered on the form.
   return (
     <main>
+      <NavBar />
       <h4 className="">Sign Up</h4>
       <div className="">
         {data ? (

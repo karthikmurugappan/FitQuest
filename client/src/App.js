@@ -8,11 +8,11 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 // import './App.css';
-import './styles/app.scss';
+// import './styles/app.scss';
 import NavBar from './components/header.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Home from './pages/homepage.js';
+import LandingPage from './pages/homepage.js';
 import SignUp  from './pages/signup.js';
 // import Profile from './pages/profile.js';
 import Login from './pages/login.js';
@@ -43,16 +43,21 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <div className= "rpgui-container framed backgound-container">
       <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
+      {/* <NavBar/> */}
+      <div>
+        <Routes>
+        <Route exact path="/" element={<LandingPage />} />
+
         <Route path="/signup" element={<SignUp />} />
         {/* <Route path="/profile" element={<Profile />} /> */}
         <Route path="/login" element={<Login />} />
 
       </Routes>
+      </div>
       </Router>
+      </div>
     </ApolloProvider>
   );
 }
