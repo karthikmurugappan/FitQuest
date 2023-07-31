@@ -24,7 +24,7 @@ const typeDefs = gql`
       exercises: [Exercise]
     }
     type Auth {
-      token: ID
+      token: String
       user: User
     }
 
