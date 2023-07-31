@@ -8,7 +8,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
 // Auth function uses the token to authorize the user.
-import Auth from '../utils/auth';
+import AuthService from '../utils/auth';
 
 // Login function starts with empty values for the elements.
 const Login = (props) => {
@@ -37,7 +37,7 @@ const Login = (props) => {
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      AuthService.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
