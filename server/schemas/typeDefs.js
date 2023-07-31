@@ -1,7 +1,6 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  # Define which fields are accessible from the Class model
   type User {
     _id: ID
     username: String
@@ -23,6 +22,7 @@ const typeDefs = gql`
       user_id: ID
       exercises: [Exercise]
     }
+    
     type Auth {
       token: String
       user: User
