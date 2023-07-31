@@ -6,11 +6,17 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         users: async () => {
-            return User.find().populate('stats');
+            return User.find();
         },
+        // users: async () => {
+        //     return User.find().populate('stats');
+        // },
         user: async (parent, { username }) => {
-            return User.findOne({ username }).populate('stats');
+            return User.findOne({ username });
         },
+        // user: async (parent, { username }) => {
+        //     return User.findOne({ username }).populate('stats');
+        // },
         stats: async (parent, { user_id }) => {
             return Stats.findOne({ user_id }).populate('exercises');
         },
@@ -39,7 +45,19 @@ const resolvers = {
         addUser: async (parent, { username, email, password }) => {
             const user = await User.create({ username, email, password });
             const token = signToken(user);
-            return { token, user };
+
+        
+            const defaultStats = {
+                strength: 1,
+                stamina: 1,
+                agility: 1,
+                user_id: user._id, // Assuming you have the user's _id after creation
+                exercises: [] // You can initialize this as an empty array
+              };
+
+            const userStats = await Stats.create(defaultStats); 
+
+            return { token, user};
         },
 
         //add new exercises to the database

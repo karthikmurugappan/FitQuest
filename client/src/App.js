@@ -13,7 +13,7 @@ import NavBar from './components/header.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './pages/homepage.js';
-// import SignUp  from './pages/signup.js.old';
+import SignUp  from './pages/signup.js';
 // import Profile from './pages/profile.js';
 // import Login from './pages/login.js.old';
 
@@ -47,7 +47,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/signup" element={<SignUp />} /> */}
+        /* <Route path="/signup" element={<SignUp />} /> */
         {/* <Route path="/profile" element={<Profile />} /> */}
         {/* <Route path="/login" element={<Login />} /> */}
        
