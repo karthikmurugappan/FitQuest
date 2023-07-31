@@ -4,9 +4,9 @@ import React from "react";
 
 const Home = () => {
     return (
-        <div className="container">
-            A nice Homepage!
-            </div>
+        <div className="container rpgui-content">
+            Welcome to FitQuest!
+        </div>
     );
   };
 
