@@ -1,4 +1,4 @@
-vimport { gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 // Creates a profile.
 export const ADD_PROFILE = gql`
