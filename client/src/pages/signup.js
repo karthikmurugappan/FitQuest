@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 // Uses the ADD_PROFILE mutation to create the user.
 import { useMutation } from '@apollo/client';
-import { ADD_PROFILE } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
 // Auth function uses the token to authorize the user.
 import Auth from '../utils/auth';
@@ -17,7 +17,7 @@ const SignUp = () => {
     email: '',
     password: '',
   });
-  const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+  const [addProfile, { error, data }] = useMutation(ADD_USER);
 
   // This updates the state based on changes to the form.
   const handleChange = (event) => {
