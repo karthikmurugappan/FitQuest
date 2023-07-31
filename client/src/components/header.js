@@ -32,8 +32,8 @@ function NavBar() {
                 Home
             </Link>
             <Link
-                onClick={() => handlePageChange('SignUp')}
-                className={currentPage === 'SignUp' ? 'rpgui-button' : 'rpgui-button'}
+                onClick={() => handlePageChange('signUp')}
+                className={currentPage === 'signUp' ? 'rpgui-button' : 'rpgui-button'}
                 to="/signup"
             >
                 Sign up
