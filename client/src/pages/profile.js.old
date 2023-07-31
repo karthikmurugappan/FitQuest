@@ -12,7 +12,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 // This imports the Exercise List js file for use on the page.
-import ExerciseList from '../components/ExerciseList';
+// import ExerciseList from '../components/ExerciseList';
 
 // This imports the two queries in use on the page.
 import { QUERY_SINGLE_USER, QUERY_ME} from '../utils/queries';
@@ -60,12 +60,12 @@ const Profile = () => {
         {profileId ? `${profile.name}'s` : 'Your'} exercise list:
       </h2>
 
-      {profile.exercises?.length > 0 && (
+      {/* {profile.exercises?.length > 0 && (
         <ExerciseList
           exercise={profile.exercise}
           isLoggedInUser={!profileId && true}
         />
-      )}
+      )} */}
     </div>
   );
 };
