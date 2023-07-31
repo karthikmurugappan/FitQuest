@@ -11,8 +11,10 @@ const resolvers = {
         // users: async () => {
         //     return User.find().populate('stats');
         // },
-        user: async (parent, { username }) => {
-            return User.findOne({ username });
+        userStats: async (parent, args, context) => {
+            // console.log(context.user._id);
+            return Stats.findOne({ user_id: context.user._id });
+
         },
         // user: async (parent, { username }) => {
         //     return User.findOne({ username }).populate('stats');
@@ -46,7 +48,7 @@ const resolvers = {
             const user = await User.create({ username, email, password });
             const token = signToken(user);
 
-        
+
             const defaultStats = {
                 strength: 1,
                 stamina: 1,
@@ -55,7 +57,7 @@ const resolvers = {
                 exercises: [] // You can initialize this as an empty array
               };
 
-            const userStats = await Stats.create(defaultStats); 
+            const userStats = await Stats.create(defaultStats);
 
             return { token, user};
         },
