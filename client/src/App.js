@@ -47,10 +47,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        /* <Route path="/signup" element={<SignUp />} /> */
+        <Route path="/signup" element={<SignUp />} />
         {/* <Route path="/profile" element={<Profile />} /> */}
         {/* <Route path="/login" element={<Login />} /> */}
-       
+
       </Routes>
       </Router>
     </ApolloProvider>
