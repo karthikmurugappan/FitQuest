@@ -14,7 +14,8 @@ const typeDefs = gql`
     description: String
     points: Int
     }
-    type Stats {
+
+  type Stats {
       _id: ID
       strength: Int
       stamina: Int
@@ -23,13 +24,13 @@ const typeDefs = gql`
       exercises: [Exercise]
     }
     
-    type Auth {
+  type Auth {
       token: String
       user: User
     }
 
 
-    type Query {
+  type Query {
         users: [User]
         user(username: String!): User
         stats(user_id: ID!): Stats
@@ -38,7 +39,7 @@ const typeDefs = gql`
     }
 
 
-    type Mutation {
+  type Mutation {
       login(email: String!, password: String!): Auth
       addUser(username: String!, email: String!, password: String!): Auth
       updateStats(strength: Int, stamina: Int, agility: Int, user_id: ID): Stats
