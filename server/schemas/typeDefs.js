@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
   }
+  
   type Exercise {
     _id: ID
     exercise_name: String
@@ -32,7 +33,7 @@ const typeDefs = gql`
 
   type Query {
         users: [User]
-        user: Stats
+        userStats: Stats
         stats(user_id: ID!): Stats
         exercises: [Exercise]
         exercise(_id: ID!): Exercise
