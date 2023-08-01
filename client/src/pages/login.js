@@ -6,12 +6,24 @@ import { Link } from 'react-router-dom';
 // Uses the LOGIN_USER mutation to create the user.
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-import NavBar from '../components/header';
+
 // Auth function uses the token to authorize the user.
 import AuthService from '../utils/auth';
 
+  
+  
+
 // Login function starts with empty values for the elements.
 const Login = (props) => {
+  const containerStyle = {
+    position: 'relative',
+    top: '50px',
+    left: '50px',
+    width: '260px',
+    height: '300px',
+    zIndex: 10,
+    overflow: 'auto',
+  }
   const [formState, setFormState] = useState({
     email: '',
     password: ''
@@ -51,9 +63,10 @@ const Login = (props) => {
 
   // The function returns this html and logs in the user.
   return (
-    <main className = "rpgui-content">
-      <div className="rpgui-container framed">
-        <h4>Login</h4>
+    
+      <main className = "rpgui-content">
+      <div className="rpgui-container framed" style={containerStyle}>
+        <h4>Login</h4>"
         <form onSubmit={handleFormSubmit}>
           <input
             className="form-input"
@@ -79,6 +92,7 @@ const Login = (props) => {
         {error && <div className="error-message">{error.message}</div>}
       </div>
     </main>
+    
   );
 };
 
