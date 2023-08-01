@@ -39,7 +39,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className= "rpgui-content rpgui-container framed">
+      <div className= "rpgui-content">
       
       <Router>
       <ActiveNavBar/>

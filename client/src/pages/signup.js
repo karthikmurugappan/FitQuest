@@ -12,6 +12,15 @@ import AuthService from '../utils/auth';
 
 // SignUp function starts with empty values for the elements.
 const SignUp = () => {
+  const containerStyle = {
+    position: 'relative',
+    top: '50px',
+    left: '50px',
+    width: '260px',
+    height: '400px',
+    zIndex: 20,
+    overflow: 'auto',
+  }
   const [formState, setFormState] = useState({
     username: '',
     email: '',
@@ -104,7 +113,7 @@ return (
 
 
   <main className = "rpgui-content">
-    <div className="rpgui-container framed">
+    <div className="rpgui-container framed" style={containerStyle}>
       <h4>Sign Up</h4>
       <form onSubmit={handleFormSubmit}>
         <input

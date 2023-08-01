@@ -1,17 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
+import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
+import { useQuery } from '@apollo/client';
+import AuthService from '../utils/auth';
 
 function ActiveNavBar() {
-    const isLoggedIn = !!localStorage.getItem('id_token');
-  
+   
+    const isLoggedIn = AuthService.loggedIn();
+    const userName = isLoggedIn ? AuthService.getProfile().username : null;
+    console.log(userName)
     const handleLogout = () => {
-      // Clear the token from localStorage to log the user out
-      localStorage.removeItem('id_token');
-      // Reload the page to update the login status in the navbar
-      window.location.reload();
+      AuthService.logout();
     };
-  
+
     return (
       <Nav className="justify-content-right">
         <h1>FitQuest</h1>
@@ -47,7 +49,7 @@ function ActiveNavBar() {
               activeClassName="active"
               className="rpgui-button text-center py-3"
               to="/profile"
-            >spsp
+            >Profile
             </NavLink>
   
             <button
@@ -56,8 +58,6 @@ function ActiveNavBar() {
             >
               Logout
             </button>
-
-            <h1>Hello</h1>
           </>
         )}
       </Nav>
