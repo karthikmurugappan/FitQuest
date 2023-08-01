@@ -31,6 +31,7 @@ const Profile = () => {
     const userInfo = currentUserData?.me || {};
     // console.log(userInfo.user_id.email);
 
+
     // This is the drop down functionality.
     const [selectedCategory, setSelectedCategory] = useState('All');
 
