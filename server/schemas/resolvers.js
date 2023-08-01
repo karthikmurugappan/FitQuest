@@ -31,7 +31,7 @@ const resolvers = {
         me: async (parent, args, context) => {
             console.log(context.user);
             if (context.user) {
-                return await Stats.findOne({ user_id: context.user._id }).populate('user');
+                return await Stats.findOne({ user_id: context.user._id }).populate('user_id');
             }
             throw new AuthenticationError('You need to be logged in!');
         }
@@ -92,9 +92,9 @@ const resolvers = {
         },
 
         //add exercise to users stats array
-        addExerciseToStats: async (parent, { exercise_id, user_id }) => {
+        addExerciseToStats: async (parent, { exercise_id}) => {
             const updatedStats = await Stats.findOneAndUpdate(
-                { user_id },
+                { user_id: context.user._id },
                 { $addToSet: { exercises: exercise_id } },
                 { new: true }
             );

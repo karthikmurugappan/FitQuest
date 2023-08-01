@@ -6,12 +6,15 @@ import { useQuery } from '@apollo/client';
 // import ExerciseList from '../components/ExerciseList';
 
 // This imports the two queries in use on the page.
-import { QUERY_SINGLE_USER, QUERY_ME} from '../utils/queries';
+import {QUERY_ME, QUERY_EXERCISES} from '../utils/queries';
 
 // Auth function uses the token to identify the "me" user.
 import Auth from '../utils/auth';
 
 const Profile = () => {
+
+    const { loading, data } = useQuery(QUERY_EXERCISES);
+    console.log(data);
 
 
     return (
