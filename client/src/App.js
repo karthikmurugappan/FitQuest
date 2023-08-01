@@ -6,7 +6,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import NavBar from './components/header.js';
+import ActiveNavBar from './components/header.js';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import LandingPage from './pages/homepage.js';
 import SignUp  from './pages/signup.js';
@@ -39,10 +39,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className= "rpgui-content rpgui-container framed">
+      <div className= "rpgui-content">
+      
       <Router>
-      {/* <NavBar/> */}
-      <div>
+      <ActiveNavBar/>
+        <div>
         <Routes>
         <Route exact path="/" element={<LandingPage />} />
 
