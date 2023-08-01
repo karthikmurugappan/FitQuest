@@ -19,40 +19,41 @@ function NavBar() {
     const handlePageChange = (page) => setCurrentPage(page);
 
     return (
-        <Nav variant="tabs"
-            activeKey="/"
-            onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-        >
-            <h1>FitQuest</h1>
-            <Link
-                onClick={() => handlePageChange('Home')}
-                className={currentPage === 'Home' ? 'rpgui-button' : 'rpgui-button'}
-                to="/"
-            >
-                Home
-            </Link>
-            <Link
-                onClick={() => handlePageChange('signUp')}
-                className={currentPage === 'signUp' ? 'rpgui-button' : 'rpgui-button'}
-                to="/signup"
-            >
-                Sign up
-            </Link>
-            <Link
-                onClick={() => handlePageChange('profile')}
-                className={currentPage === 'profile' ? 'rpgui-button' : 'rpgui-button'}
-                to="/profile"
-            >
-                Profile
-            </Link>
-            <Link
-                onClick={() => handlePageChange('login')}
-                className={currentPage === 'login' ? 'rpgui-button' : 'rpgui-button'}
-                to="/login"
-            >
-                Login
-            </Link>
+        <div className="rpgui-content">
+        <Nav className="justify-content-right">
+
+                <h1>FitQuest</h1>
+                <Link
+                    onClick={() => handlePageChange('Home')}
+                    className={currentPage === 'Home' ? 'rpgui-button text-center py-3' : 'rpgui-button text-center py-3'}
+                    to="/"
+                >
+                    Home
+                </Link>
+                <Link
+                    onClick={() => handlePageChange('signUp')}
+                    className={currentPage === 'signUp' ? 'rpgui-button text-center py-3' : 'rpgui-button text-center py-3'}
+                    to="/signup"
+                >
+                    Sign Up
+                </Link>
+                <Link
+                    onClick={() => handlePageChange('Profile')}
+                    className={currentPage === 'Profile' ? 'rpgui-button text-center py-3' : 'rpgui-button text-center py-3'}
+                    to="/profile"
+                >
+                    Profile
+                </Link>
+                <Link
+                    onClick={() => handlePageChange('login')}
+                    className={currentPage === 'login' ? 'rpgui-button text-center py-3' : 'rpgui-button text-center py-3'}
+                    to="/login"
+                >
+                    Login
+                </Link>
+
         </Nav>
+    </div>
     );
 }
 

@@ -1,9 +1,15 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import ExerciseList from '../components/ExerciseList';
-import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
-import AuthService from '../utils/auth';
+
+// This imports the Exercise List js file for use on the page.
+// import ExerciseList from '../components/ExerciseList';
+
+// This imports the two queries in use on the page.
+import { QUERY_SINGLE_USER, QUERY_ME} from '../utils/queries';
+
+// Auth function uses the token to identify the "me" user.
+import Auth from '../utils/auth';
 
 const Profile = () => {
 
