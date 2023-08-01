@@ -13,7 +13,7 @@ const resolvers = {
         // },
         userStats: async (parent, args, context) => {
             // console.log(context.user._id);
-            return Stats.findOne({ user_id: context.user._id });
+            return Stats.findOne({ user_id: context.user._id }).populate('exercises').populate('user_id');
 
         },
         // user: async (parent, { username }) => {
@@ -92,14 +92,25 @@ const resolvers = {
         },
 
         //add exercise to users stats array
-        addExerciseToStats: async (parent, { exercise_id}) => {
+        addExerciseToStats: async (parent, { exercise_id }, context) => {
+            if (!context.user) {
+                throw new AuthenticationError("User must be logged in to perform this action.");
+            }
+            console.log(context.user._id);
+
+
             const updatedStats = await Stats.findOneAndUpdate(
                 { user_id: context.user._id },
-                { $addToSet: { exercises: exercise_id } },
+                { $push: { exercises: exercise_id } },
                 { new: true }
-            );
+            ).populate('exercises').populate('user_id');
+            console.log(updatedStats);
+
             return updatedStats;
         },
+
+
+
         removeExerciseFromStats: async (parent, { exercise_id, user_id }) => {
             const updatedStats = await Stats.findOneAndUpdate(
                 { user_id },
