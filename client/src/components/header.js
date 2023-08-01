@@ -19,11 +19,9 @@ function NavBar() {
     const handlePageChange = (page) => setCurrentPage(page);
 
     return (
-        <Nav variant="tabs"
-            activeKey="/"
-            onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-        >
-            <div className="rpgui-content">
+        <div className="rpgui-content">
+        <Nav className="justify-content-right">
+            
                 <h1>FitQuest</h1>
                 <Link
                     onClick={() => handlePageChange('Home')}
@@ -53,8 +51,9 @@ function NavBar() {
                 >
                     Login
                 </Link>
-            </div>
+            
         </Nav>
+    </div>
     );
 }
 

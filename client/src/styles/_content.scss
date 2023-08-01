@@ -46,3 +46,15 @@
 	/* default font */
 	font-family: 'Press Start 2P', cursive;
 }
+@media screen and (max-width: 768px) {
+    .rpgui-content {
+        font-size: 0.7em; /* Adjust font size for smaller screens */
+    }
+}
+
+/* For screens with a width of 480px or less */
+@media screen and (max-width: 480px) {
+    .rpgui-content {
+        font-size: 0.6em; /* Further adjust font size for even smaller screens */
+    }
+}
