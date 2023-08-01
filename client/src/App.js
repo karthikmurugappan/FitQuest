@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './pages/homepage.js';
 import SignUp  from './pages/signup.js';
-// import Profile from './pages/profile.js';
+import Profile from './pages/profile.js';
 import Login from './pages/login.js';
 
 const httpLink = createHttpLink({
@@ -48,7 +48,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
-        {/* <Route path="/profile" element={<Profile />} /> */}
+        <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
 
       </Routes>
