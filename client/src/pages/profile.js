@@ -21,7 +21,7 @@ const Profile = () => {
 
     const exerciseList = data?.exercises || [];
 
-    const { loading:userDataLoading, data:currentUserData } = useQuery(QUERY_ME, {
+    const { loading: userDataLoading, data: currentUserData } = useQuery(QUERY_ME, {
         fetchPolicy: "no-cache"
     });
     console.log(currentUserData);
@@ -32,36 +32,29 @@ const Profile = () => {
 
     return (
         <div>
-            <div>
-                <h2>User</h2>
-                <ul className="square">
+            <h2>Exercises:</h2>
+            <ul className="square">
+                <div className="row">
+                    <div className="col text-white text-center" >Exercise Name</div>
+                    <div className="col text-white text-center">Type</div>
+                    <div className="col-5 text-white text-center">Description</div>
+                    <div className="col text-white text-center">Points</div>
+                </div>
                 {exerciseList.map((exercise) => {
                     return (
                         <li key={exercise._id}>
                             <Link to={{ pathname: `/exercise/${exercise._id}` }}>
-                                {exercise.exercise_name},
+                                <div className="row">
+                                    <div className="col text-center">{exercise.exercise_name}</div>
+                                    <div className="col text-center">{exercise.type}</div>
+                                    <div className="col-5">{exercise.description}</div>
+                                    <div className="col text-center">{exercise.points}</div>
+                                </div>
                             </Link>
                         </li>
                     );
                 })}
             </ul>
-            </div>
-
-
-            {/* <h2 className="">
-                Exercises:
-            </h2>
-            <ul className="square">
-                {exerciseList.map((exercise) => {
-                    return (
-                        <li key={exercise._id}>
-                            <Link to={{ pathname: `/exercise/${exercise._id}` }}>
-                                {exercise.exercise_name},
-                            </Link>
-                        </li>
-                    );
-                })}
-            </ul> */}
         </div>
     );
 

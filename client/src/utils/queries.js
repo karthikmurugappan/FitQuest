@@ -86,16 +86,16 @@ export const QUERY_SINGLE_EXERCISE = gql`
 
 // Displays the user's profile and detailed data.
 export const QUERY_ME = gql`
-  query Query {
-    me {
-      agility
-      stamina
-      strength
-      user {
-        email
-        username
-      }
+query Query {
+  me {
+    agility
+    stamina
+    strength
+    user {
+      email
+      username
     }
   }
+}
 `;
 

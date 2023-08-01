@@ -92,9 +92,9 @@ const resolvers = {
         },
 
         //add exercise to users stats array
-        addExerciseToStats: async (parent, { exercise_id, user_id }) => {
+        addExerciseToStats: async (parent, { exercise_id}) => {
             const updatedStats = await Stats.findOneAndUpdate(
-                { user_id },
+                { user_id: context.user._id },
                 { $addToSet: { exercises: exercise_id } },
                 { new: true }
             );
