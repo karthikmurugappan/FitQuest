@@ -1,27 +1,60 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
+
 
 // This imports the Exercise List js file for use on the page.
 // import ExerciseList from '../components/ExerciseList';
 
 // This imports the two queries in use on the page.
-import {QUERY_ME, QUERY_EXERCISES} from '../utils/queries';
+import { QUERY_ME, QUERY_EXERCISES } from '../utils/queries';
 
 // Auth function uses the token to identify the "me" user.
 import Auth from '../utils/auth';
 
 const Profile = () => {
 
-    const { loading, data } = useQuery(QUERY_EXERCISES);
-    console.log(data);
+    const { loading, data } = useQuery(QUERY_EXERCISES, {
+        fetchPolicy: "no-cache"
+    });
 
+    const exerciseList = data?.exercises || [];
+
+    const { loading: userDataLoading, data: currentUserData } = useQuery(QUERY_ME, {
+        fetchPolicy: "no-cache"
+    });
+    console.log(currentUserData);
+
+
+    const userExerciseList = currentUserData?.exercises || [];
+    console.log(userExerciseList);
 
     return (
         <div>
-            <h2 className="">
-                hello world
-            </h2>
+            <h2>Exercises:</h2>
+            <ul className="square">
+                <div className="row">
+                    <div className="col text-white text-center" >Exercise Name</div>
+                    <div className="col text-white text-center">Type</div>
+                    <div className="col-5 text-white text-center">Description</div>
+                    <div className="col text-white text-center">Points</div>
+                </div>
+                {exerciseList.map((exercise) => {
+                    return (
+                        <li key={exercise._id}>
+                            <Link to={{ pathname: `/exercise/${exercise._id}` }}>
+                                <div className="row">
+                                    <div className="col text-center">{exercise.exercise_name}</div>
+                                    <div className="col text-center">{exercise.type}</div>
+                                    <div className="col-5">{exercise.description}</div>
+                                    <div className="col text-center">{exercise.points}</div>
+                                </div>
+                            </Link>
+                        </li>
+                    );
+                })}
+            </ul>
         </div>
     );
 

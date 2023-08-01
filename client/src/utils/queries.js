@@ -40,7 +40,7 @@ export const QUERY_SINGLE_USER = gql`
   }
 `;
 
-//display user stats
+// Display user stats
 export const QUERY_STATS = gql`
   query allStats {
     stats {
