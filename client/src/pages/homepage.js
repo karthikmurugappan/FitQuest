@@ -1,10 +1,19 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 // Not sure we need this page. - Dave
-
+//display login and signup buttons
 const LandingPage = () => {
+  const containerStyle = {
+    position: 'relative',
+    top: 'auto',
+    left: 'auto',
+    width: 'auto',
+    height: 'auto',
+    zIndex: 10,
+    overflow: 'auto',
+  }
   return (
-    <div className="">
+    <div className="rpgui-container framed" style={containerStyle}>
       <header className="hero">
         <div className="hero-content">
           <h1>Welcome to FitQuest</h1>
