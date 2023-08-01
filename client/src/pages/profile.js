@@ -34,12 +34,15 @@ const Profile = () => {
     // console.log(userInfo.user_id.email);
 
     return (
-        <div>
+        <main className='rpgui-container framed'>
+        <div className='col'>
+          
             {userDataLoading ? (<h2>Loading...</h2>) : (
-                <div className="row">
-                    <div className="col text-info text-center" >Strength:{userInfo.strength} </div>
-                    <div className="col text-white text-center" >Stamina:{userInfo.strength} </div>
-                    <div className="col text-white text-center" >Agility:{userInfo.strength} </div>
+                <div className= "rpgui-container framed stat-container" >
+                    <h1>User Stats</h1>
+                    <div className="row text-info text-center stat-text" >Strength:{userInfo.strength} </div>
+                    <div className="row text-white text-center stat-text" >Stamina:{userInfo.strength} </div>
+                    <div className="row text-white text-center stat-text" >Agility:{userInfo.strength} </div>
                     {/* {userInfo.user_id.username}
                     {userInfo.user_id.email}
                     {userInfo.agility}
@@ -51,8 +54,11 @@ const Profile = () => {
 
             {/* <div className="row">{ userInfo.user_id.email}</div> */}
 
-            <h2>Exercises:</h2>
-            <ul className="square">
+            
+        </div>
+        <div className='col'> 
+        <h2>Exercises:</h2>
+            <ul className="">
                 <div className="row">
                     <div className="col text-white text-center" >Exercise Name</div>
                     <div className="col text-white text-center">Type</div>
@@ -75,6 +81,7 @@ const Profile = () => {
                 })}
             </ul>
         </div>
+        </main>
     );
 
 
