@@ -21,7 +21,7 @@ const typeDefs = gql`
       strength: Int
       stamina: Int
       agility: Int
-      user_id: ID
+      user_id: User
       exercises: [Exercise]
       user: User
     }
