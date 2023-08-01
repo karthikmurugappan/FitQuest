@@ -6,11 +6,11 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import NavBar from './components/header.js';
+import ActiveNavBar from './components/header.js';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import LandingPage from './pages/homepage.js';
 import SignUp  from './pages/signup.js';
-// import Profile from './pages/profile.js';
+import Profile from './pages/profile.js';
 import Login from './pages/login.js';
 
 const httpLink = createHttpLink({
@@ -40,14 +40,15 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className= "rpgui-content rpgui-container framed">
+      
       <Router>
-      {/* <NavBar/> */}
-      <div>
+      <ActiveNavBar/>
+        <div>
         <Routes>
         <Route exact path="/" element={<LandingPage />} />
 
         <Route path="/signup" element={<SignUp />} />
-        {/* <Route path="/profile" element={<Profile />} /> */}
+        <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
 
       </Routes>

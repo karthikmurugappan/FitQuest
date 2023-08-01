@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 // Not sure we need this page. - Dave
-
+//display login and signup buttons
 const LandingPage = () => {
   return (
     <div className="">

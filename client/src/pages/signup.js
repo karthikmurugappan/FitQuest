@@ -101,6 +101,8 @@ const SignUp = () => {
 // export default SignUp;
 
 return (
+
+
   <main className = "rpgui-content">
     <div className="rpgui-container framed">
       <h4>Sign Up</h4>
@@ -129,7 +131,7 @@ return (
           value={formState.password}
           onChange={handleChange}
         />
-        <button className="" style={{ cursor: 'pointer' }} type="submit">
+        <button className="rpgui-button text-center py-3" style={{ cursor: '' }} type="submit">
           Submit
         </button>
       </form>
@@ -137,6 +139,7 @@ return (
       {error && <div className="error-message">{error.message}</div>}
     </div>
   </main>
+
 );
 };
 

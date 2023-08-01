@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 // Uses the LOGIN_USER mutation to create the user.
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-import NavBar from '../components/header';
+
 // Auth function uses the token to authorize the user.
 import AuthService from '../utils/auth';
 
@@ -51,7 +51,8 @@ const Login = (props) => {
 
   // The function returns this html and logs in the user.
   return (
-    <main className = "rpgui-content">
+    
+      <main className = "rpgui-content">
       <div className="rpgui-container framed">
         <h4>Login</h4>
         <form onSubmit={handleFormSubmit}>
@@ -79,6 +80,7 @@ const Login = (props) => {
         {error && <div className="error-message">{error.message}</div>}
       </div>
     </main>
+    
   );
 };
 
