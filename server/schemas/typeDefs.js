@@ -7,7 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
   }
-  
+
   type Exercise {
     _id: ID
     exercise_name: String
@@ -23,6 +23,7 @@ const typeDefs = gql`
       agility: Int
       user_id: ID
       exercises: [Exercise]
+      user: User
     }
 
   type Auth {
@@ -37,6 +38,7 @@ const typeDefs = gql`
         stats(user_id: ID!): Stats
         exercises: [Exercise]
         exercise(_id: ID!): Exercise
+        me: Stats
     }
 
 
