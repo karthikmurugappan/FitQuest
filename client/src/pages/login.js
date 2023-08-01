@@ -51,46 +51,32 @@ const Login = (props) => {
 
   // The function returns this html and logs in the user.
   return (
-    <main className="">
-      <NavBar />
-      <h4 className="">Login</h4>
-      <div className="">
-        {data ? (
-          <p>
-            <Link to="/" />
-          </p>
-        ) : (
-          <form onSubmit={handleFormSubmit}>
-            <input
-              className="form-input"
-              placeholder="Your email"
-              name="email"
-              type="email"
-              value={formState.email}
-              onChange={handleChange}
-            />
-            <input
-              className="form-input"
-              placeholder="********"
-              name="password"
-              type="password"
-              value={formState.password}
-              onChange={handleChange}
-            />
-            <button
-              className=""
-              style={{ cursor: 'pointer' }}
-              type="submit">
-              Submit
-            </button>
-          </form>
-        )}
+    <main className = "rpgui-content">
+      <div className="rpgui-container framed">
+        <h4>Login</h4>
+        <form onSubmit={handleFormSubmit}>
+          <input
+            className="form-input"
+            placeholder="Your email"
+            name="email"
+            type="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
+          <input
+            className="form-input"
+            placeholder="********"
+            name="password"
+            type="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <button className="" style={{ cursor: 'pointer' }} type="submit">
+            Submit
+          </button>
+        </form>
 
-        {error && (
-          <div className="">
-            {error.message}
-          </div>
-        )}
+        {error && <div className="error-message">{error.message}</div>}
       </div>
     </main>
   );

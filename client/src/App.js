@@ -6,11 +6,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
-// import './App.css';
-// import './styles/app.scss';
 import NavBar from './components/header.js';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import LandingPage from './pages/homepage.js';
 import SignUp  from './pages/signup.js';
@@ -43,7 +39,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className= "rpgui-container framed backgound-container">
+      <div className= "rpgui-content rpgui-container framed">
       <Router>
       {/* <NavBar/> */}
       <div>

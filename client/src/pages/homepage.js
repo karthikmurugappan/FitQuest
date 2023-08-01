@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   return (
-    <div className="rpgui-content">
+    <div className="">
       <header className="hero">
         <div className="hero-content">
           <h1>Welcome to FitQuest</h1>

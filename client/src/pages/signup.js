@@ -45,58 +45,99 @@ const SignUp = () => {
   };
 
   // The function returns this html and sets the values in the database to the values entered on the form.
-  return (
-    <main>
-      <NavBar />
-      <h4 className="">Sign Up</h4>
-      <div className="">
-        {data ? (
-          <p>
-            <Link to="/" />
-          </p>
-        ) : (
-          <form onSubmit={handleFormSubmit}>
-            <input
-              className="form-input"
-              placeholder="Your username"
-              name="username"
-              type="text"
-              value={formState.username}
-              onChange={handleChange}
-            />
-            <input
-              className="form-input"
-              placeholder="Your email"
-              name="email"
-              type="email"
-              value={formState.email}
-              onChange={handleChange}
-            />
-            <input
-              className="form-input"
-              placeholder="********"
-              name="password"
-              type="password"
-              value={formState.password}
-              onChange={handleChange}
-            />
-            <button
-              className=""
-              style={{ cursor: 'pointer' }}
-              type="submit">
-              Submit
-            </button>
-          </form>
-        )}
+//   return (
+//     <main className = "">
+//       <h4 className="">Sign Up</h4>
+//       <div className="">
+//         {data ? (
+//           <p>
+//             <Link to="/" />
+//           </p>
+//         ) : (
+//           <form onSubmit={handleFormSubmit}>
+//             <input
+//               className="form-input"
+//               placeholder="Your username"
+//               name="username"
+//               type="text"
+//               value={formState.username}
+//               onChange={handleChange}
+//             />
+//             <input
+//               className="form-input"
+//               placeholder="Your email"
+//               name="email"
+//               type="email"
+//               value={formState.email}
+//               onChange={handleChange}
+//             />
+//             <input
+//               className="form-input"
+//               placeholder="********"
+//               name="password"
+//               type="password"
+//               value={formState.password}
+//               onChange={handleChange}
+//             />
+//             <button
+//               className=""
+//               style={{ cursor: 'pointer' }}
+//               type="submit">
+//               Submit
+//             </button>
+//           </form>
+//         )}
 
-        {error && (
-          <div className="">
-            {error.message}
-          </div>
-        )}
-      </div>
-    </main>
-  );
+//         {error && (
+//           <div className="">
+//             {error.message}
+//           </div>
+//         )}
+//       </div>
+//     </main>
+//   );
+// };
+
+// export default SignUp;
+
+return (
+  <main className = "rpgui-content">
+    <div className="rpgui-container framed">
+      <h4>Sign Up</h4>
+      <form onSubmit={handleFormSubmit}>
+        <input
+          className="form-input"
+          placeholder="Your username"
+          name="username"
+          type="text"
+          value={formState.username}
+          onChange={handleChange}
+        />
+        <input
+          className="form-input"
+          placeholder="Your email"
+          name="email"
+          type="email"
+          value={formState.email}
+          onChange={handleChange}
+        />
+        <input
+          className="form-input"
+          placeholder="********"
+          name="password"
+          type="password"
+          value={formState.password}
+          onChange={handleChange}
+        />
+        <button className="" style={{ cursor: 'pointer' }} type="submit">
+          Submit
+        </button>
+      </form>
+
+      {error && <div className="error-message">{error.message}</div>}
+    </div>
+  </main>
+);
 };
 
 export default SignUp;
