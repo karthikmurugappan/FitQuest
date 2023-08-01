@@ -88,12 +88,21 @@ export const QUERY_SINGLE_EXERCISE = gql`
 export const QUERY_ME = gql`
 query Query {
   me {
+    _id
     agility
     stamina
     strength
-    user {
+    exercises {
+      _id
+      description
+      exercise_name
+      points
+      type
+    }
+    user_id {
       email
       username
+      _id
     }
   }
 }

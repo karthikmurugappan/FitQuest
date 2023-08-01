@@ -6,10 +6,10 @@ import { useQuery } from '@apollo/client';
 import AuthService from '../utils/auth';
 
 function ActiveNavBar() {
-   
+
     const isLoggedIn = AuthService.loggedIn();
     const userName = isLoggedIn ? AuthService.getProfile().username : null;
-    console.log(userName)
+    // console.log(userName)
     const handleLogout = () => {
       AuthService.logout();
     };
@@ -17,7 +17,7 @@ function ActiveNavBar() {
     return (
       <Nav className="justify-content-right">
         <h1>FitQuest</h1>
-  
+
         <NavLink
           exact
           activeClassName="active"
@@ -26,7 +26,7 @@ function ActiveNavBar() {
         >
           Home
         </NavLink>
-  
+
         {!isLoggedIn && (
           <>
             <NavLink
@@ -36,13 +36,13 @@ function ActiveNavBar() {
             >
               Sign Up
             </NavLink>
-  
+
             <NavLink activeClassName="active" className="rpgui-button text-center py-3" to="/login">
               Login
             </NavLink>
           </>
         )}
-  
+
         {isLoggedIn && (
           <>
             <NavLink
@@ -51,7 +51,7 @@ function ActiveNavBar() {
               to="/profile"
             >Profile
             </NavLink>
-  
+
             <button
               className="rpgui-button text-center py-3"
               onClick={handleLogout}
@@ -64,5 +64,5 @@ function ActiveNavBar() {
 
     );
   }
-  
+
   export default ActiveNavBar;

@@ -24,14 +24,33 @@ const Profile = () => {
     const { loading: userDataLoading, data: currentUserData } = useQuery(QUERY_ME, {
         fetchPolicy: "no-cache"
     });
-    console.log(currentUserData);
-
 
     const userExerciseList = currentUserData?.exercises || [];
     console.log(userExerciseList);
 
+    console.log(currentUserData);
+
+    const userInfo = currentUserData?.me || {};
+    // console.log(userInfo.user_id.email);
+
     return (
         <div>
+            {userDataLoading ? (<h2>Loading...</h2>) : (
+                <div className="row">
+                    <div className="col text-info text-center" >Strength:{userInfo.strength} </div>
+                    <div className="col text-white text-center" >Stamina:{userInfo.strength} </div>
+                    <div className="col text-white text-center" >Agility:{userInfo.strength} </div>
+                    {/* {userInfo.user_id.username}
+                    {userInfo.user_id.email}
+                    {userInfo.agility}
+                    {userInfo.strength}
+                    {userInfo.stamina} */}
+                </div>
+            )}
+
+
+            {/* <div className="row">{ userInfo.user_id.email}</div> */}
+
             <h2>Exercises:</h2>
             <ul className="square">
                 <div className="row">
