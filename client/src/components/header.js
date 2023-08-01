@@ -21,7 +21,7 @@ function NavBar() {
     return (
         <div className="rpgui-content">
         <Nav className="justify-content-right">
-            
+
                 <h1>FitQuest</h1>
                 <Link
                     onClick={() => handlePageChange('Home')}
@@ -51,7 +51,7 @@ function NavBar() {
                 >
                     Login
                 </Link>
-            
+
         </Nav>
     </div>
     );
