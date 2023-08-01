@@ -40,7 +40,7 @@ export const QUERY_SINGLE_USER = gql`
   }
 `;
 
-//display user stats
+// Display user stats
 export const QUERY_STATS = gql`
   query allStats {
     stats {
@@ -86,19 +86,14 @@ export const QUERY_SINGLE_EXERCISE = gql`
 
 // Displays the user's profile and detailed data.
 export const QUERY_ME = gql`
-  query me {
+  query Query {
     me {
-      _id
-      username
-      stats {
-        _id
-        strength
-        stamina
-        agility
-        exercises {
-          _id
-          exercise_name
-        }
+      agility
+      stamina
+      strength
+      user {
+        email
+        username
       }
     }
   }
