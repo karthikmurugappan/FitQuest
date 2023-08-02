@@ -1,53 +1,48 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { useQuery, useMutation } from '@apollo/client';
-import { Card, Col, Container, Table, Form } from 'react-bootstrap';
+import { useQuery, } from '@apollo/client';
+import { Container, } from 'react-bootstrap';
 
 
 // This imports the two queries in use on the page.
-import { QUERY_USERS } from '../utils/queries';
+import { QUERY_ALL_STATS } from '../utils/queries';
 
 
 // Auth function uses the token to identify the "me" user.
-import Auth from '../utils/auth';
+
 
 function Leaderboard() {
-    const { loading, error, data } = useQuery(QUERY_USERS);
-  
+    const { loading, error, data } = useQuery(QUERY_ALL_STATS, {
+      fetchPolicy: "no-cache"
+    });
+    console.log(data)
+    const statList = data?.allStats || [];
+ 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
-  
+    const sortedStatList = data.allStats.sort(
+        (a, b) => (b.strength + b.agility + b.stamina) - (a.strength + a.agility + a.stamina)
+      );
+
+      console.log (sortedStatList)
+
+    const topUsers = sortedStatList.slice(0, 10);
     return (
       <Container>
-        <h1>Leaderboard</h1>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>Strength</th>
-              <th>Stamina</th>
-              <th>Agility</th>
-              <th>Exercises</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.users.map((user) => (
-              <tr key={user._id}>
-                <td>{user.username}</td>
-                <td>{user.stats.strength}</td>
-                <td>{user.stats.stamina}</td>
-                <td>{user.stats.agility}</td>
-                <td>
-                  {user.stats.exercises.map((exercise) => (
-                    <span key={exercise._id}>{exercise.exercise_name}, </span>
-                  ))}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
+        <h1 className ="user-name">Leaderboard</h1>
+        <div clasName = "">
+          {topUsers.map((statList) => (
+            <div key={statList.id} className="row pt-3 pb-3 rpgui-container framed-golden">
+              <div className="user-name">{statList.user_id.username}</div>
+              <div className="stat-list col text-info text-center rpgui-container framed-golden">Strength: {statList.strength}</div>
+              <div className="stat-list col text-info text-center rpgui-container framed-golden">Agility: {statList.agility}</div>
+              <div className="stat-list col text-info text-center rpgui-container framed-golden">Stamina: {statList.stamina}</div>
+            </div>
+          ))}
+        </div>
       </Container>
     );
   }
+  
 
-  export default Leaderboard;
+export default Leaderboard;
