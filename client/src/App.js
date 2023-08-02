@@ -7,9 +7,9 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import ActiveNavBar from './components/header.js';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/homepage.js';
-import SignUp  from './pages/signup.js';
+import SignUp from './pages/signup.js';
 import Profile from './pages/profile.js';
 import Login from './pages/login.js';
 import Leaderboard from './pages/leaderboard.js';
@@ -40,22 +40,22 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className= "rpgui-content">
-      
-      <Router>
-      <ActiveNavBar/>
-        <div>
-        <Routes>
-        <Route exact path="/" element={<LandingPage />} />
+      <div className="rpgui-content">
 
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Router>
+          <ActiveNavBar />
+          <div>
+            <Routes>
+              <Route exact path="/" element={<LandingPage />} />
 
-      </Routes>
-      </div>
-      </Router>
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/leaderboard" element={<Leaderboard />} />
+
+            </Routes>
+          </div>
+        </Router>
       </div>
     </ApolloProvider>
   );

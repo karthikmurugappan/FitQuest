@@ -56,7 +56,6 @@ export const QUERY_STATS = gql`
   }
 `;
 
-
 // Displays all exercises.
 export const QUERY_EXERCISES = gql`
   query allExercises {
@@ -82,7 +81,6 @@ export const QUERY_SINGLE_EXERCISE = gql`
     }
   }
 `;
-
 
 // Displays the user's profile and detailed data.
 export const QUERY_ME = gql`
@@ -126,4 +124,3 @@ query Query {
   }
 }
 `;
-

@@ -44,7 +44,7 @@ mutation removeExercise($exercise: String!) {
   }
 `;
 
-//add exercise to stats
+// Add exercise to stats
 export const ADD_EXERCISE_TO_STATS = gql`
 mutation AddExerciseToStats($exerciseId: String, $type: String, $points: Int) {
   addExerciseToStats(exercise_id: $exerciseId, type: $type, points: $points) {
@@ -68,7 +68,7 @@ mutation AddExerciseToStats($exerciseId: String, $type: String, $points: Int) {
 }
 `;
 
-//remove exercise from stats
+// Remove exercise from stats
 export const REMOVE_EXERCISE_FROM_STATS = gql`
 mutation removeExerciseFromStats($exerciseId: String, $type: String, $points: Int) {
   removeExerciseFromStats(exercise_id: $exerciseId, type: $type, points: $points) {

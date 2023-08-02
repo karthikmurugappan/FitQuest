@@ -10,9 +10,6 @@ import { LOGIN_USER } from '../utils/mutations';
 // Auth function uses the token to authorize the user.
 import AuthService from '../utils/auth';
 
-  
-  
-
 // Login function starts with empty values for the elements.
 const Login = (props) => {
   const containerStyle = {
@@ -50,7 +47,7 @@ const Login = (props) => {
       });
 
       AuthService.login(data.login.token);
-      window.location.href="/profile"
+      window.location.href = "/profile"
     } catch (e) {
       console.error(e);
     }
@@ -64,8 +61,7 @@ const Login = (props) => {
 
   // The function returns this html and logs in the user.
   return (
-    
-      <main className = "rpgui-content">
+    <main className="rpgui-content">
       <div className="rpgui-container framed login-container">
         <h2>Login</h2>
         <form onSubmit={handleFormSubmit}>
@@ -95,7 +91,7 @@ const Login = (props) => {
         {error && <div className="error-message">{error.message}</div>}
       </div>
     </main>
-    
+
   );
 };
 

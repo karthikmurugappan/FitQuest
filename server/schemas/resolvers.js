@@ -2,23 +2,16 @@ const { User, Stats, Exercise } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
-
 const resolvers = {
     Query: {
         users: async () => {
             return User.find();
         },
-        // users: async () => {
-        //     return User.find().populate('stats');
-        // },
         userStats: async (parent, args, context) => {
             // console.log(context.user._id);
             return Stats.findOne({ user_id: context.user._id }).populate('exercises').populate('user_id');
 
         },
-        // user: async (parent, { username }) => {
-        //     return User.findOne({ username }).populate('stats');
-        // },
         stats: async (parent, { user_id }) => {
             return Stats.findOne({ user_id }).populate('exercises');
         },
@@ -42,7 +35,6 @@ const resolvers = {
         }
     },
 
-
     Mutation: {
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
@@ -65,8 +57,8 @@ const resolvers = {
                 strength: 1,
                 stamina: 1,
                 agility: 1,
-                user_id: user._id, // Assuming you have the user's _id after creation
-                exercises: [] // You can initialize this as an empty array
+                user_id: user._id, 
+                exercises: []
               };
 
             const userStats = await Stats.create(defaultStats);
@@ -101,44 +93,30 @@ const resolvers = {
             if (!context.user) {
                 throw new AuthenticationError("User must be logged in to perform this action.");
             }
-            // console.log(context.user._id);
 
             const stats = await Stats.findOne({ user_id: context.user._id });
-            // console.log("stats",stats, type);
-
-            // console.log("before points", points);
 
             const updatedStats = await Stats.findOneAndUpdate(
                 { user_id: context.user._id },
                 { $push: { exercises: exercise_id }, $set: { [type.toLowerCase()]: stats[type.toLowerCase()]+points} },
                 { new: true }
             ).populate('exercises').populate('user_id');
-            console.log(updatedStats);
-
-
 
             return updatedStats;
         },
-
-
 
         removeExerciseFromStats: async (parent, { exercise_id, type, points },context) => {
             if (!context.user) {
                 throw new AuthenticationError("User must be logged in to perform this action.");
             }
-            // console.log(context.user._id);
 
             const stats = await Stats.findOne({ user_id: context.user._id });
-            console.log("stats",stats, type);
-
-            // console.log("before points", points);
 
             const updatedStats = await Stats.findOneAndUpdate(
                 { user_id: context.user._id },
                 { $pull: { exercises: exercise_id }, $set: { [type.toLowerCase()]: stats[type.toLowerCase()] - points } },
                 { new: true }
             ).populate('exercises').populate('user_id');
-            console.log(updatedStats);
 
             return updatedStats;
         },

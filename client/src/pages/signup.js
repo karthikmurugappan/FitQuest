@@ -48,55 +48,54 @@ const SignUp = () => {
       });
 
       AuthService.login(data.addUser.token);
-      window.location.href="/profile"
+      window.location.href = "/profile"
     } catch (e) {
       console.error(JSON.stringify(e));
     }
   };
 
-return (
+  return (
+    <main className="rpgui-content">
+      <div className="rpgui-container framed login-container">
+        <h2>Sign Up</h2>
+        <form onSubmit={handleFormSubmit}>
+          <h3>UserName</h3>
+          <input
+            className="form-input"
+            placeholder="Your username"
+            name="username"
+            type="text"
+            value={formState.username}
+            onChange={handleChange}
+          />
+          <h3>Email</h3>
+          <input
+            className="form-input"
+            placeholder="Your email"
+            name="email"
+            type="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
+          <h3>Password</h3>
+          <input
+            className="form-input"
+            placeholder="********"
+            name="password"
+            type="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <button className="rpgui-button text-center py-3" style={{ cursor: '' }} type="submit">
+            Submit
+          </button>
+        </form>
 
-  <main className = "rpgui-content">
-    <div className="rpgui-container framed login-container">
-      <h2>Sign Up</h2>
-      <form onSubmit={handleFormSubmit}>
-        <h3>UserName</h3>
-        <input
-          className="form-input"
-          placeholder="Your username"
-          name="username"
-          type="text"
-          value={formState.username}
-          onChange={handleChange}
-        />
-        <h3>Email</h3>
-        <input
-          className="form-input"
-          placeholder="Your email"
-          name="email"
-          type="email"
-          value={formState.email}
-          onChange={handleChange}
-        />
-        <h3>Password</h3>
-        <input
-          className="form-input"
-          placeholder="********"
-          name="password"
-          type="password"
-          value={formState.password}
-          onChange={handleChange}
-        />
-        <button className="rpgui-button text-center py-3" style={{ cursor: '' }} type="submit">
-          Submit
-        </button>
-      </form>
+        {error && <div className="error-message">{error.message}</div>}
+      </div>
+    </main>
 
-      {error && <div className="error-message">{error.message}</div>}
-    </div>
-  </main>
-
-);
+  );
 };
 
 export default SignUp;
