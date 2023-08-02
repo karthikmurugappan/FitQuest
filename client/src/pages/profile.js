@@ -7,6 +7,7 @@ import './profile.css'
 import bluePotion from '../styles/img/icons/potion-blue.png'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import Button from 'react-bootstrap/Button';
 
 // This imports the two queries in use on the page.
 import { QUERY_ME, QUERY_EXERCISES } from '../utils/queries';
@@ -30,7 +31,7 @@ const Profile = () => {
         fetchPolicy: "no-cache"
     });
 
-    const userExerciseList = currentUserData?.exercises || [];
+    const userExerciseList = currentUserData?.me.exercises || [];
 
     const userInfo = currentUserData?.me || {};
     // console.log(userInfo.user_id.email);
@@ -51,10 +52,13 @@ const Profile = () => {
         <Container className="rpgui-container framed-golden">
             <div>
                 {userDataLoading ? (<h2>Loading...</h2>) : (
-                    <div className="row">
-                        <div className="col text-info text-center" >Your Strength:{userInfo.strength}</div>
-                        <div className="col text-warning text-center" >Your Stamina:{userInfo.stamina}</div>
-                        <div className="col text-danger text-center" >Your Agility:{userInfo.agility}</div>
+                    
+
+                    <div className="row pt-3 pb-3">
+                        <div className="user-name">{userInfo.user_id.username}</div>
+                        <div className="col text-info text-center" >Strength:{userInfo.strength}</div>
+                        <div className="col text-warning text-center" >Stamina:{userInfo.stamina}</div>
+                        <div className="col text-danger text-center" >Agility:{userInfo.agility}</div>
                         {/* {userInfo.user_id.username}
                  {userInfo.user_id.email}
                  {userInfo.agility}
@@ -62,6 +66,30 @@ const Profile = () => {
                  {userInfo.stamina} */}
                     </div>
                 )}
+
+                {userExerciseList.map((exerciseList, _id) =>
+                    <div className="p-2 text-white">
+                    <Row>
+                        <Col>
+                        {exerciseList.exercise_name}
+                        </Col>
+                        <Col>
+                        {exerciseList.type}
+                        </Col>
+                        <Col>
+                        {exerciseList.points}
+                        </Col>
+                        <Col>
+                        {exerciseList.description}
+                        </Col>
+                        <Col>
+                        
+                        </Col>
+                    </Row>
+                    </div>
+
+                )}
+
 
                 <h1>Choose an Excercise Quest to Complete</h1>
                 <Form>
@@ -95,7 +123,7 @@ This link will need to change.
                                         </div>
                                         <DropdownButton id="dropdown-item-button" title="Dropdown button">
                                             <Dropdown.ItemText>Actions</Dropdown.ItemText>
-                                            <Dropdown.Item onClick={() => addExerciseToStats({ variables: { exerciseId: exercise._id, type:exercise.type, points:exercise.points }})} as="button">ADD</Dropdown.Item>
+                                            <Dropdown.Item onClick={() => addExerciseToStats({ variables: { exerciseId: exercise._id, type: exercise.type, points: exercise.points } })} as="button">ADD</Dropdown.Item>
                                         </DropdownButton>
                                     </Card.Body>
                                 </Card>
