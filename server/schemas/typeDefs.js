@@ -36,6 +36,7 @@ const typeDefs = gql`
         users: [User]
         userStats: Stats
         stats(user_id: ID!): Stats
+        allStats: [Stats]
         exercises: [Exercise]
         exercise(_id: ID!): Exercise
         me: Stats
@@ -48,8 +49,9 @@ const typeDefs = gql`
       updateStats(strength: Int, stamina: Int, agility: Int, user_id: ID): Stats
 
       addExerciseToStats(exercise_id:String, type:String, points:Int): Stats
+      removeExerciseFromStats(exercise_id:String, type:String, points:Int): Stats
 
-      removeExerciseFromStats(exercise_id: ID!, user_id: ID!): Stats
+
       addStats(strength: Int, stamina: Int, agility: Int, user_id: ID): Stats
       addExercise(exercise_name: String!, type: String!, description: String!, points: Int!): Exercise
     }
