@@ -68,9 +68,9 @@ const Profile = () => {
 
                     <div className="row pt-3 pb-3">
                         <div className="user-name">{userInfo.user_id.username}</div>
-                        <div className="stat-list col text-info text-center" >Strength:{userInfo.strength}</div>
-                        <div className="stat-list col text-warning text-center" >Stamina:{userInfo.stamina}</div>
-                        <div className="stat-list col text-danger text-center" >Agility:{userInfo.agility}</div>
+                        <div className="stat-list col text-info text-center" >Strength:  {userInfo.strength}</div>
+                        <div className="stat-list col text-warning text-center" >Stamina:  {userInfo.stamina}</div>
+                        <div className="stat-list col text-danger text-center" >Agility:  {userInfo.agility}</div>
                         {/* {userInfo.user_id.username}
                  {userInfo.user_id.email}
                  {userInfo.agility}
@@ -78,7 +78,7 @@ const Profile = () => {
                  {userInfo.stamina} */}
                     </div>
                 )}
-                <div className="pb-4 scroll" >
+                <div className="pb-1 scroll" >
                     <Row>
                         <Col xs={3} className="e-header">
                             Name
@@ -90,10 +90,10 @@ const Profile = () => {
                             Points
                         </Col>
                         <Col xs={5} className="e-header">
-                            Descsription
+                            Description
                         </Col>
-                        <Col className="e-header">
-                            Delete
+                        <Col xs={1} className="e-header">
+                            Del
                         </Col>
                     </Row>
                     {userExerciseList.map((exerciseList, _id) =>
@@ -131,7 +131,7 @@ const Profile = () => {
 
                 </div>
 
-                <h1>Choose an Excercise Quest to Complete</h1>
+                <h1 className="pt-5">Choose an Excercise Quest to Complete</h1>
                 <Form>
                     <Form.Group>
                         <Form.Label>Filter by Exercise Type:</Form.Label>
