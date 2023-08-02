@@ -50,6 +50,7 @@ const Login = (props) => {
       });
 
       AuthService.login(data.login.token);
+      window.location.href="/profile"
     } catch (e) {
       console.error(e);
     }

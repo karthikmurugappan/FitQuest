@@ -48,17 +48,13 @@ const SignUp = () => {
       });
 
       AuthService.login(data.addUser.token);
-      window.location.href = '/profile';
-
+      window.location.href="/profile"
     } catch (e) {
       console.error(JSON.stringify(e));
     }
   };
 
-  
-
 return (
-
 
   <main className = "rpgui-content">
     <div className="rpgui-container framed login-container">

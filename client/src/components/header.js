@@ -7,71 +7,74 @@ import AuthService from '../utils/auth';
 
 function ActiveNavBar() {
 
-    const isLoggedIn = AuthService.loggedIn();
-    const userName = isLoggedIn ? AuthService.getProfile().username : null;
-    // console.log(userName)
-    const handleLogout = () => {
-      AuthService.logout();
-      window.location.href = '/'
-    };
+  const isLoggedIn = AuthService.loggedIn();
+  const userName = isLoggedIn ? AuthService.getProfile().username : null;
+  // console.log(userName)
+  const handleLogout = () => {
+    AuthService.logout();
+    window.location.href = '/'
+  };
 
-    return (
-      <Nav className="justify-content-right">
-        <h1>FitQuest</h1>
+  return (
+    <Nav className="justify-content-right">
+      <h1 className="logofitquest">FitQuest</h1>
 
-        <NavLink
-          exact
-          activeClassName="active"
-          className="rpgui-button text-center py-3"
-          to="/"
-        >
-          Home
-        </NavLink>
-        <NavLink
-          activeClassName="active"
-          className="rpgui-button text-center py-3"
-          to="/leaderboard"
-        >
-          Leaderboard
-        </NavLink>
 
-        {!isLoggedIn && (
-          <>
-            <NavLink
-              activeClassName="active"
-              className="rpgui-button text-center py-3"
-              to="/signup"
-            >
-              Sign Up
-            </NavLink>
+      <NavLink
+        activeClassName="active"
+        className="rpgui-button text-center py-3"
+        to="/leaderboard"
+      >
+        Leaderboard
+      </NavLink>
 
-            <NavLink activeClassName="active" className="rpgui-button text-center py-3" to="/login">
-              Login
-            </NavLink>
-          </>
-        )}
+      {!isLoggedIn && (
+        <>
+          <NavLink
+            exact
+            activeClassName="active"
+            className="rpgui-button text-center py-3"
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            activeClassName="active"
+            className="rpgui-button text-center py-3"
+            to="/signup"
+          >
+            Sign Up
+          </NavLink>
 
-        {isLoggedIn && (
-          <>
-            <NavLink
-              activeClassName="active"
-              className="rpgui-button text-center py-3"
-              to="/profile"
-            >Profile
-            </NavLink>
+          <NavLink activeClassName="active" className="rpgui-button text-center py-3" to="/login">
+            Login
+          </NavLink>
 
-            <NavLink
-              activeClassName="active"
-              className="rpgui-button text-center py-3"
-              onClick={handleLogout}
-            >
-              Logout
-            </NavLink>
-          </>
-        )}
-      </Nav>
+        </>
+      )}
 
-    );
-  }
+      {isLoggedIn && (
+        <>
 
-  export default ActiveNavBar;
+          <NavLink
+            activeClassName="active"
+            className="rpgui-button text-center py-3"
+            to="/profile"
+          >Profile
+          </NavLink>
+
+          <NavLink
+            activeClassName="active"
+            className="rpgui-button text-center py-3"
+            onClick={handleLogout}
+          >
+            Logout
+          </NavLink>
+        </>
+      )}
+    </Nav>
+
+  );
+}
+
+export default ActiveNavBar;

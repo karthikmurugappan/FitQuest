@@ -29,7 +29,7 @@ function Leaderboard() {
     const topUsers = sortedStatList.slice(0, 10);
     return (
       <Container>
-        <h1 className ="user-name">Leaderboard</h1>
+        <h1 className ="logofitquest">Leaderboard</h1>
         <div clasName = "">
           {topUsers.map((statList) => (
             <div key={statList.id} className="row pt-3 pb-3 rpgui-container framed-golden">
