@@ -2,12 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { Card, Col, Container, Row, Form } from 'react-bootstrap';
+import { Card, Col, Container, Row, Form, Modal, Button } from 'react-bootstrap';
 import './profile.css'
 import bluePotion from '../styles/img/icons/potion-blue.png'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // This imports the two queries in use on the page.
 import { QUERY_ME, QUERY_EXERCISES } from '../utils/queries';
@@ -46,19 +47,29 @@ const Profile = () => {
 
     const filteredCards = selectedCategory === 'All' ? exerciseList : exerciseList.filter(card => card.type === selectedCategory);
 
+    // Modal components
+    const [showModal, setShowModal] = React.useState(false);
+
+    const handleModalOpen = () => {
+        setShowModal(true);
+    };
+
+    const handleModalClose = () => {
+        setShowModal(false);
+    };
 
     return (
 
         <Container className="rpgui-container framed-golden">
             <div>
                 {userDataLoading ? (<h2>Loading...</h2>) : (
-                    
+
 
                     <div className="row pt-3 pb-3">
                         <div className="user-name">{userInfo.user_id.username}</div>
-                        <div className="col text-info text-center" >Strength:{userInfo.strength}</div>
-                        <div className="col text-warning text-center" >Stamina:{userInfo.stamina}</div>
-                        <div className="col text-danger text-center" >Agility:{userInfo.agility}</div>
+                        <div className="stat-list col text-info text-center" >Strength:{userInfo.strength}</div>
+                        <div className="stat-list col text-warning text-center" >Stamina:{userInfo.stamina}</div>
+                        <div className="stat-list col text-danger text-center" >Agility:{userInfo.agility}</div>
                         {/* {userInfo.user_id.username}
                  {userInfo.user_id.email}
                  {userInfo.agility}
@@ -66,30 +77,50 @@ const Profile = () => {
                  {userInfo.stamina} */}
                     </div>
                 )}
-
-                {userExerciseList.map((exerciseList, _id) =>
-                    <div className="p-2 text-white">
+                <div className="pb-4">
                     <Row>
-                        <Col>
-                        {exerciseList.exercise_name}
+                        <Col xs={3} className="e-header">
+                            Name
                         </Col>
-                        <Col>
-                        {exerciseList.type}
+                        <Col xs={2} className="e-header">
+                            Type
                         </Col>
-                        <Col>
-                        {exerciseList.points}
+                        <Col xs={1} className="e-header">
+                            Points
                         </Col>
-                        <Col>
-                        {exerciseList.description}
+                        <Col xs={5} className="e-header">
+                            Descsription
                         </Col>
-                        <Col>
-                        
+                        <Col className="e-header">
+                            Delete
                         </Col>
                     </Row>
-                    </div>
+                    {userExerciseList.map((exerciseList, _id) =>
+                        <div className="p-2 border-bottom text-white">
+                            <Row>
+                                <Col xs={3}>
+                                    {exerciseList.exercise_name}
+                                </Col>
+                                <Col xs={2}>
+                                    {exerciseList.type}
+                                </Col>
+                                <Col xs={1}>
+                                    {exerciseList.points}
+                                </Col>
+                                <Col xs={5}>
+                                    {exerciseList.description}
+                                </Col>
+                                <Col>
+                                <Button variant="danger">
+                            -
+                            </Button>
+                                </Col>
+                            </Row>
+                        </div>
 
-                )}
+                    )}
 
+                </div>
 
                 <h1>Choose an Excercise Quest to Complete</h1>
                 <Form>
