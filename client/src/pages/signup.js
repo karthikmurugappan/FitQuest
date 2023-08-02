@@ -16,8 +16,8 @@ const SignUp = () => {
     position: 'relative',
     top: '50px',
     left: '50px',
-    width: '260px',
-    height: '400px',
+    width: '500px',
+    height: '600px',
     zIndex: 20,
     overflow: 'auto',
   }
@@ -57,9 +57,10 @@ const SignUp = () => {
 return (
 
   <main className = "rpgui-content">
-    <div className="rpgui-container framed" style={containerStyle}>
-      <h4>Sign Up</h4>
+    <div className="rpgui-container framed login-container">
+      <h2>Sign Up</h2>
       <form onSubmit={handleFormSubmit}>
+        <h3>UserName</h3>
         <input
           className="form-input"
           placeholder="Your username"
@@ -68,6 +69,7 @@ return (
           value={formState.username}
           onChange={handleChange}
         />
+        <h3>Email</h3>
         <input
           className="form-input"
           placeholder="Your email"
@@ -76,6 +78,7 @@ return (
           value={formState.email}
           onChange={handleChange}
         />
+        <h3>Password</h3>
         <input
           className="form-input"
           placeholder="********"

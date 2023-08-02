@@ -114,11 +114,13 @@ main {
 }
 
 .login-container {
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
+  position: 'relative';
+  top: '50px';
+  left: '50px';
+  width: '500px';
+  height: '600px';
+  z-Index: 20;
+  overflow: 'auto';
 }
 
 h4 {
@@ -176,17 +178,21 @@ button:hover {
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-  .login-container {
-    width: 90%;
-  }
+
 }
 
 @media screen and (max-width: 480px) {
   .form-input {
-    padding: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
 
   button {
-    padding: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
 }

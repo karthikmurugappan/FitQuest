@@ -14,7 +14,7 @@
     top: 0px;
     // position: fixed;
     // overflow: hidden;
-    font-size: 0.8em;
+    // font-size: 0.8em;
 }
 
 /* general rules to apply on anything inside the content */
@@ -49,13 +49,14 @@
 }
 @media screen and (max-width: 768px) {
     .rpgui-content {
-        font-size: 0.7em; /* Adjust font size for smaller screens */
+        font-size: 1.0em; /* Adjust font size for smaller screens */
     }
 }
 
 /* For screens with a width of 480px or less */
 @media screen and (max-width: 480px) {
     .rpgui-content {
-        font-size: 0.6em; /* Further adjust font size for even smaller screens */
+        font-size: 1.1em; /* Further adjust font size for even smaller screens */
+        height: 75vh;
     }
 }

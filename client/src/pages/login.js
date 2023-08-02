@@ -19,8 +19,8 @@ const Login = (props) => {
     position: 'relative',
     top: '50px',
     left: '50px',
-    width: '260px',
-    height: '300px',
+    width: '375px',
+    height: '500px',
     zIndex: 10,
     overflow: 'auto',
   }
@@ -66,9 +66,10 @@ const Login = (props) => {
   return (
     
       <main className = "rpgui-content">
-      <div className="rpgui-container framed" style={containerStyle}>
-        <h4>Login</h4>"
+      <div className="rpgui-container framed login-container">
+        <h2>Login</h2>
         <form onSubmit={handleFormSubmit}>
+          <h3>Email</h3>
           <input
             className="form-input"
             placeholder="Your email"
@@ -77,6 +78,7 @@ const Login = (props) => {
             value={formState.email}
             onChange={handleChange}
           />
+          <h3>Password</h3>
           <input
             className="form-input"
             placeholder="********"
@@ -85,7 +87,7 @@ const Login = (props) => {
             value={formState.password}
             onChange={handleChange}
           />
-          <button className="" style={{ cursor: 'pointer' }} type="submit">
+          <button className="rpgui-button text-center py-3" type="submit">
             Submit
           </button>
         </form>
