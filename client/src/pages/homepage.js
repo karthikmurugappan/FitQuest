@@ -21,7 +21,14 @@ const LandingPage = () => {
           <Link to="/signup">
             <button className="rpgui-button text-center py-3">Get Started</button>
           </Link>
+          <Link to="/login">
+            <button className="rpgui-button text-center py-3">Login</button>
+          </Link>
         </div>
+      
+       
+        
+      
       </header>
 
       <section className="features">
@@ -39,12 +46,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="cta-section">
-        <h2>Already have an account?</h2>
-        <Link to="/login">
-            <button className="rpgui-button text-center py-3">Login</button>
-          </Link>
-      </section>
+
     </div>
   );
 };
