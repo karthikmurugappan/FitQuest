@@ -1,5 +1,5 @@
 // Import the things necessary to render the page.
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigate, useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { Card, Col, Container, Row, Form } from 'react-bootstrap';
@@ -123,7 +123,16 @@ This link will need to change.
                                         </div>
                                         <DropdownButton id="dropdown-item-button" title="Dropdown button">
                                             <Dropdown.ItemText>Actions</Dropdown.ItemText>
-                                            <Dropdown.Item onClick={() => addExerciseToStats({ variables: { exerciseId: exercise._id, type: exercise.type, points: exercise.points } })} as="button">ADD</Dropdown.Item>
+                                            <Dropdown.Item onClick={async () => {
+                                             await addExerciseToStats({
+                                                 variables: { 
+                                                    exerciseId: exercise._id,
+                                                     type: exercise.type,
+                                                      points: exercise.points
+                                                     }
+                                                     })
+                                                     window.location.assign('/profile')
+                                            }} as="button">ADD</Dropdown.Item>
                                         </DropdownButton>
                                     </Card.Body>
                                 </Card>
