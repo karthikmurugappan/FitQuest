@@ -146,37 +146,48 @@ const Profile = () => {
                 <Row className="flex-wrap overflow-auto">
                     {filteredCards.map((exercise, _id) => (
                         <Col xs={12} md={6} lg={4} key={exercise._id}>
-                            <Link to={{ pathname: `/profile` }}>
-                                {/* <Link to={{ pathname: `/exercise/${exercise._id}` }}> */}
-                                {/* =========================
-This link will need to change.
-========================= */}
-                                <Card className="custom-card">
-                                    {/* <Card.Img variant="top" src={card.image} alt={card.title} /> */}
-                                    <Card.Body>
-                                        <Card.Title className="custom-title">{exercise.exercise_name}</Card.Title>
-                                        <div className="custom-type">Type: {exercise.type}</div><br></br>
-                                        <div className="custom-description">{exercise.description}</div> <br></br>
-                                        <div className="align-items-center">
-                                            <img src={bluePotion} className="custom-icon" alt="Blue Potion" />
-                                            <div className="custom-points">Potion: {exercise.points}p</div>
-                                        </div>
-                                        <DropdownButton id="dropdown-item-button" title="Dropdown button">
-                                            <Dropdown.ItemText>Actions</Dropdown.ItemText>
-                                            <Dropdown.Item onClick={async () => {
-                                                await addExerciseToStats({
-                                                    variables: {
-                                                        exerciseId: exercise._id,
-                                                        type: exercise.type,
-                                                        points: exercise.points
-                                                    }
-                                                })
-                                                window.location.assign('/profile')
-                                            }} as="button">ADD</Dropdown.Item>
-                                        </DropdownButton>
-                                    </Card.Body>
-                                </Card>
-                            </Link>
+                            <Card className="custom-card">
+                                <Card.Body>
+                                    <Card.Title className="custom-title">{exercise.exercise_name}</Card.Title>
+                                    <div className="custom-type">Type: {exercise.type}</div><br></br>
+                                    <div className="custom-description">{exercise.description}</div> <br></br>
+                                    <div className="align-items-center">
+                                        <img src={bluePotion} className="custom-icon" alt="Blue Potion" />
+                                        <div className="custom-points">Potion: {exercise.points}p</div>
+
+                                    </div>
+                                    <div className=""> <br></br> <br></br> <br></br>
+
+                                   
+                                            {/* <DropdownButton id="dropdown-item-button" title="Add"> */}
+                                                {/* <Dropdown.ItemText>Actions</Dropdown.ItemText> */}
+                                                {/* <Dropdown.Item onClick={async () => {
+                                                    await addExerciseToStats({
+                                                        variables: {
+                                                            exerciseId: exercise._id,
+                                                            type: exercise.type,
+                                                            points: exercise.points
+                                                        }
+                                                    })
+                                                    window.location.assign('/profile')
+                                                }} as="button">ADD</Dropdown.Item>
+                                            </DropdownButton>
+                                         */}
+                                    </div>
+                                </Card.Body>
+                                                                       
+                                <Button variant='success' onClick={async () => {
+                                        await addExerciseToStats({
+                                            variables: {
+                                                exerciseId: exercise._id,
+                                                type: exercise.type,
+                                                points: exercise.points
+                                            }
+                                        })
+                                        window.location.assign('/profile')
+                                    }} as="button">+
+                                    </Button>
+                            </Card>
                         </Col>
                     ))}
                 </Row>
