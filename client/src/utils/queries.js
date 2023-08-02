@@ -108,3 +108,22 @@ query Query {
 }
 `;
 
+export const QUERY_ALL_STATS = gql`
+query Query {
+  allStats {
+    agility
+    stamina
+    strength
+    exercises {
+      _id
+      exercise_name
+    }
+    user_id {
+      _id
+      username
+      email
+    }
+  }
+}
+`;
+

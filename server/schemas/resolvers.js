@@ -22,6 +22,11 @@ const resolvers = {
         stats: async (parent, { user_id }) => {
             return Stats.findOne({ user_id }).populate('exercises');
         },
+
+        allStats: async () => {
+            return Stats.find().populate('exercises').populate('user_id');
+        },
+        
         exercises: async () => {
             return Exercise.find();
         },
