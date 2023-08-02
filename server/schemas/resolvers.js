@@ -92,19 +92,25 @@ const resolvers = {
         },
 
         //add exercise to users stats array
-        addExerciseToStats: async (parent, { exercise_id }, context) => {
+        addExerciseToStats: async (parent, { exercise_id, type, points }, context) => {
             if (!context.user) {
                 throw new AuthenticationError("User must be logged in to perform this action.");
             }
-            console.log(context.user._id);
+            // console.log(context.user._id);
 
+            const stats = await Stats.findOne({ user_id: context.user._id });
+            // console.log("stats",stats, type);
+
+            // console.log("before points", points);
 
             const updatedStats = await Stats.findOneAndUpdate(
                 { user_id: context.user._id },
-                { $push: { exercises: exercise_id } },
+                { $push: { exercises: exercise_id }, $set: { [type.toLowerCase()]: stats[type.toLowerCase()]+points} },
                 { new: true }
             ).populate('exercises').populate('user_id');
             console.log(updatedStats);
+
+
 
             return updatedStats;
         },

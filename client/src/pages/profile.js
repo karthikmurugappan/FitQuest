@@ -1,20 +1,24 @@
 // Import the things necessary to render the page.
 import React, { useState } from 'react';
 import { Navigate, useParams, Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { Card, Col, Container, Row, Form } from 'react-bootstrap';
 import './profile.css'
 import bluePotion from '../styles/img/icons/potion-blue.png'
-
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 // This imports the two queries in use on the page.
-import { QUERY_ME, ADD_, QUERY_EXERCISES } from '../utils/queries';
+import { QUERY_ME, QUERY_EXERCISES } from '../utils/queries';
+import { ADD_EXERCISE_TO_STATS } from '../utils/mutations';
 
 // Auth function uses the token to identify the "me" user.
 import Auth from '../utils/auth';
 
 // This retrieves the exercise list.
 const Profile = () => {
+
+    const [addExerciseToStats] = useMutation(ADD_EXERCISE_TO_STATS);
 
     const { loading, data } = useQuery(QUERY_EXERCISES, {
         fetchPolicy: "no-cache"
@@ -48,9 +52,9 @@ const Profile = () => {
             <div>
                 {userDataLoading ? (<h2>Loading...</h2>) : (
                     <div className="row">
-                        <div className="col text-info text-center" >Your Strength:{userInfo.strength} 25</div>
-                        <div className="col text-warning text-center" >Your Stamina:{userInfo.strength} 25</div>
-                        <div className="col text-danger text-center" >Your Agility:{userInfo.strength} 25</div>
+                        <div className="col text-info text-center" >Your Strength:{userInfo.strength}</div>
+                        <div className="col text-warning text-center" >Your Stamina:{userInfo.stamina}</div>
+                        <div className="col text-danger text-center" >Your Agility:{userInfo.agility}</div>
                         {/* {userInfo.user_id.username}
                  {userInfo.user_id.email}
                  {userInfo.agility}
@@ -66,7 +70,7 @@ const Profile = () => {
                         <Form.Control className=" rpgui-dropdown-imp" as="select" value={selectedCategory} onChange={handleCategoryChange}>
                             <option value="All">All</option>
                             <option value="Strength">Strength</option>
-                            <option value="Stamina (Cardiovascular)">Stamina</option>
+                            <option value="Stamina">Stamina</option>
                             <option value="Agility">Agilty</option>
                         </Form.Control>
                     </Form.Group>
@@ -89,6 +93,10 @@ This link will need to change.
                                             <img src={bluePotion} className="custom-icon" alt="Blue Potion" />
                                             <div className="custom-points">Potion: {exercise.points}p</div>
                                         </div>
+                                        <DropdownButton id="dropdown-item-button" title="Dropdown button">
+                                            <Dropdown.ItemText>Actions</Dropdown.ItemText>
+                                            <Dropdown.Item onClick={() => addExerciseToStats({ variables: { exerciseId: exercise._id, type:exercise.type, points:exercise.points }})} as="button">ADD</Dropdown.Item>
+                                        </DropdownButton>
                                     </Card.Body>
                                 </Card>
                             </Link>
@@ -99,5 +107,15 @@ This link will need to change.
         </Container >
     );
 };
+
+
+
+
+
+
+
+
+
+
 
 export default Profile;

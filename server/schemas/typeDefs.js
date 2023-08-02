@@ -47,7 +47,7 @@ const typeDefs = gql`
       addUser(username: String!, email: String!, password: String!): Auth
       updateStats(strength: Int, stamina: Int, agility: Int, user_id: ID): Stats
 
-      addExerciseToStats(exercise_id:String): Stats
+      addExerciseToStats(exercise_id:String, type:String, points:Int): Stats
 
       removeExerciseFromStats(exercise_id: ID!, user_id: ID!): Stats
       addStats(strength: Int, stamina: Int, agility: Int, user_id: ID): Stats
