@@ -22,6 +22,10 @@
 
 }
 
+.logofitquest {
+  font-size: 3.14em !important;  
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
