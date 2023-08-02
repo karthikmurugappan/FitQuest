@@ -5,6 +5,11 @@
   text-decoration: none;
 }
 
+.scroll {
+  overflow-y: scroll;
+  height: 500px;
+}
+
 .custom-title {
   /* background-color: lightgoldenrodyellow; */
   color: blue;
