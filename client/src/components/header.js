@@ -12,6 +12,7 @@ function ActiveNavBar() {
     // console.log(userName)
     const handleLogout = () => {
       AuthService.logout();
+      window.location.href = '/'
     };
 
     return (
@@ -25,6 +26,13 @@ function ActiveNavBar() {
           to="/"
         >
           Home
+        </NavLink>
+        <NavLink
+          activeClassName="active"
+          className="rpgui-button text-center py-3"
+          to="/leaderboard"
+        >
+          Leaderboard
         </NavLink>
 
         {!isLoggedIn && (
@@ -52,12 +60,13 @@ function ActiveNavBar() {
             >Profile
             </NavLink>
 
-            <button
+            <NavLink
+              activeClassName="active"
               className="rpgui-button text-center py-3"
               onClick={handleLogout}
             >
               Logout
-            </button>
+            </NavLink>
           </>
         )}
       </Nav>
