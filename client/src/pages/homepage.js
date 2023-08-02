@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-// Not sure we need this page. - Dave
-//display login and signup buttons
+
+//Display login and signup buttons
 const LandingPage = () => {
   const containerStyle = {
     position: 'relative',
@@ -25,10 +25,6 @@ const LandingPage = () => {
             <button className="rpgui-button text-center py-3">Login</button>
           </Link>
         </div>
-      
-       
-        
-      
       </header>
 
       <section className="features">
@@ -45,8 +41,6 @@ const LandingPage = () => {
           <p>See your hardwork pay off in the real world</p>
         </div>
       </section>
-
-
     </div>
   );
 };

@@ -13,8 +13,9 @@
   --breakpoint-xl: 1200px;
   background-color: #4e4a4e;
 }
+
 .navbar {
-  
+
   margin-top: 12‒;
   padding-top: 20px;
   padding-left: 20px;
@@ -23,7 +24,7 @@
 }
 
 .logofitquest {
-  font-size: 3.14em !important;  
+  font-size: 3.14em !important;
 }
 
 body {
@@ -106,6 +107,7 @@ code {
   font-size: 36px;
   margin-bottom: 20px;
 }
+
 main {
   display: flex;
   justify-content: center;
@@ -177,9 +179,7 @@ button:hover {
 
 
 /* Responsive Styles */
-@media screen and (max-width: 768px) {
-
-}
+@media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 480px) {
   .form-input {

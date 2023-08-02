@@ -18,7 +18,6 @@ const server = new ApolloServer({
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
 // Serve up static assets
 app.use('/images', express.static(path.join(__dirname, '../client/images')));
 
@@ -45,7 +44,7 @@ const startApolloServer = async () => {
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     })
   })
-  };
+};
 
 // Call the async function to start the server
-  startApolloServer();
+startApolloServer();
