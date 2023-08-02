@@ -49,7 +49,7 @@ const SignUp = () => {
 
       AuthService.login(data.addUser.token);
     } catch (e) {
-      console.error(e);
+      console.error(JSON.stringify(e));
     }
   };
 
