@@ -1,0 +1,53 @@
+.custom-card {
+  background-color: lightgoldenrodyellow;
+  color: white;
+  margin: 5px;
+  text-decoration: none;
+}
+
+.custom-title {
+  /* background-color: lightgoldenrodyellow; */
+  color: blue;
+ font-size: 20px; 
+
+  /* margin: 5px;
+  text-decoration: none; */
+}
+
+.custom-type {
+  /* background-color: lightgoldenrodyellow; */
+  color: green;
+   font-size: 15px; 
+  /* margin: 5px;
+  text-decoration: none; */
+}
+
+.custom-description {
+  /* background-color: lightgoldenrodyellow; */
+  color: white;
+  /* margin: 5px;
+  text-decoration: none; */
+}
+
+.custom-points {
+  /* background-color: lightgoldenrodyellow; */
+  color: red;
+   font-size: 20px; 
+   text-align: right;
+   float: right;
+  margin-top: 30px;
+  margin-right: 15px;
+ 
+}
+
+.custom-icon {
+  /* background-color: lightgoldenrodyellow; */
+border: 1px;
+width: 75px;
+height: 75px;
+ margin-top: 0px;
+ margin-bottom: 0px;
+ float: left;    
+margin-left: 10px;
+  /* text-decoration: none; */ 
+}

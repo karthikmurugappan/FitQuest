@@ -138,6 +138,23 @@ button:hover {
   margin-top: 10px;
 }
 
+.stat-text {
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.stat-container {
+  position: 'relative';
+  top: '50px';
+  left: '50px';
+  width: '260px';
+  height: '300px';
+  z-index: 10;
+  overflow: 'auto';
+}
+
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .login-container {
