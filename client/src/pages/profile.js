@@ -77,7 +77,7 @@ const Profile = () => {
                 </Form>
                 <Row className="flex-wrap overflow-auto">
                     {filteredCards.map((exercise, _id) => (
-                        <Col xs={4} key={exercise._id}>
+                        <Col xs={12} md={6} lg={4} key={exercise._id}>
                             <Link to={{ pathname: `/profile` }}>
                                 {/* <Link to={{ pathname: `/exercise/${exercise._id}` }}> */}
                                 {/* =========================
