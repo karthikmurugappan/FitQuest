@@ -1,6 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+
   type User {
     _id: ID
     username: String
@@ -23,7 +24,6 @@ const typeDefs = gql`
       agility: Int
       user_id: User
       exercises: [Exercise]
-      user: User
     }
 
   type Auth {
@@ -46,7 +46,9 @@ const typeDefs = gql`
       login(email: String!, password: String!): Auth
       addUser(username: String!, email: String!, password: String!): Auth
       updateStats(strength: Int, stamina: Int, agility: Int, user_id: ID): Stats
-      addExerciseToStats(exercise_id: ID!, user_id: ID!): Stats
+
+      addExerciseToStats(exercise_id:String, type:String, points:Int): Stats
+
       removeExerciseFromStats(exercise_id: ID!, user_id: ID!): Stats
       addStats(strength: Int, stamina: Int, agility: Int, user_id: ID): Stats
       addExercise(exercise_name: String!, type: String!, description: String!, points: Int!): Exercise

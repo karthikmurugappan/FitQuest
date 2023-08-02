@@ -43,3 +43,27 @@ mutation removeExercise($exercise: String!) {
     }
   }
 `;
+
+//add exercise to stats
+export const ADD_EXERCISE_TO_STATS = gql`
+mutation AddExerciseToStats($exerciseId: String, $type: String, $points: Int) {
+  addExerciseToStats(exercise_id: $exerciseId, type: $type, points: $points) {
+    _id
+    agility
+    stamina
+    strength
+    exercises {
+      _id
+      description
+      exercise_name
+      points
+      type
+    }
+    user_id {
+      email
+      username
+      _id
+    }
+  }
+}
+`;
