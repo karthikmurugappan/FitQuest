@@ -14,7 +14,7 @@ import AuthService from '../utils/auth';
 const SignUp = () => {
   const containerStyle = {
     position: 'relative',
-    top: '50px',
+    top: '-500px',
     left: '50px',
     width: '260px',
     height: '400px',
@@ -140,7 +140,7 @@ return (
           value={formState.password}
           onChange={handleChange}
         />
-        <button className="rpgui-button text-center py-3" style={{ cursor: '' }} type="submit">
+        <button className="rpgui-button text-center py-3"  type="submit">
           Submit
         </button>
       </form>

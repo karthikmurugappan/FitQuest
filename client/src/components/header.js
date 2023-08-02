@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import AuthService from '../utils/auth';
 
 function ActiveNavBar() {
-
+   
     const isLoggedIn = AuthService.loggedIn();
     const userName = isLoggedIn ? AuthService.getProfile().username : null;
     // console.log(userName)

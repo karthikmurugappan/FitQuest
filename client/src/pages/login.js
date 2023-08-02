@@ -17,10 +17,10 @@ import AuthService from '../utils/auth';
 const Login = (props) => {
   const containerStyle = {
     position: 'relative',
-    top: '50px',
-    left: '50px',
+    top: '-500px',
+    left: '25px',
     width: '260px',
-    height: '300px',
+    height: '325px',
     zIndex: 10,
     overflow: 'auto',
   }
@@ -84,9 +84,9 @@ const Login = (props) => {
             value={formState.password}
             onChange={handleChange}
           />
-          <button className="" style={{ cursor: 'pointer' }} type="submit">
-            Submit
-          </button>
+          <button className="rpgui-button text-center py-3"  type="submit">
+          Submit
+        </button>
         </form>
 
         {error && <div className="error-message">{error.message}</div>}
