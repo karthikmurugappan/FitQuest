@@ -1,12 +1,9 @@
 // Import the things necessary to render the page.
-import React, { useEffect, useState } from 'react';
-import { Navigate, useParams, Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { Card, Col, Container, Row, Form, Modal, Button } from 'react-bootstrap';
+import { Card, Col, Container, Row, Form, Button } from 'react-bootstrap';
 import './profile.css'
 import bluePotion from '../styles/img/icons/potion-blue.png'
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -14,8 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { QUERY_ME, QUERY_EXERCISES } from '../utils/queries';
 import { ADD_EXERCISE_TO_STATS, REMOVE_EXERCISE_FROM_STATS } from '../utils/mutations';
 
-// Auth function uses the token to identify the "me" user.
-import Auth from '../utils/auth';
+// Auth function uses the token to identify the "me" user.  Leaving this commented out for use later.
+// import Auth from '../utils/auth';
 
 // This retrieves the exercise list.
 const Profile = () => {
@@ -36,8 +33,6 @@ const Profile = () => {
     const userExerciseList = currentUserData?.me.exercises || [];
 
     const userInfo = currentUserData?.me || {};
-    // console.log(userInfo.user_id.email);
-
 
     // This is the drop down functionality.
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -47,17 +42,6 @@ const Profile = () => {
     };
 
     const filteredCards = selectedCategory === 'All' ? exerciseList : exerciseList.filter(card => card.type === selectedCategory);
-
-    // Modal components
-    const [showModal, setShowModal] = React.useState(false);
-
-    const handleModalOpen = () => {
-        setShowModal(true);
-    };
-
-    const handleModalClose = () => {
-        setShowModal(false);
-    };
 
     return (
 
@@ -71,11 +55,6 @@ const Profile = () => {
                         <div className="stat-list col text-info text-center" >Strength:{userInfo.strength}</div>
                         <div className="stat-list col text-warning text-center" >Stamina:{userInfo.stamina}</div>
                         <div className="stat-list col text-danger text-center" >Agility:{userInfo.agility}</div>
-                        {/* {userInfo.user_id.username}
-                 {userInfo.user_id.email}
-                 {userInfo.agility}
-                 {userInfo.strength}
-                 {userInfo.stamina} */}
                     </div>
                 )}
                 <div className="pb-4 scroll" >
@@ -128,9 +107,7 @@ const Profile = () => {
                         </div>
 
                     )}
-
                 </div>
-
                 <h1>Choose an Excercise Quest to Complete</h1>
                 <Form>
                     <Form.Group>
@@ -154,39 +131,19 @@ const Profile = () => {
                                     <div className="align-items-center">
                                         <img src={bluePotion} className="custom-icon" alt="Blue Potion" />
                                         <div className="custom-points">Potion: {exercise.points}p</div>
-
-                                    </div>
-                                    <div className=""> <br></br> <br></br> <br></br>
-
-                                   
-                                            {/* <DropdownButton id="dropdown-item-button" title="Add"> */}
-                                                {/* <Dropdown.ItemText>Actions</Dropdown.ItemText> */}
-                                                {/* <Dropdown.Item onClick={async () => {
-                                                    await addExerciseToStats({
-                                                        variables: {
-                                                            exerciseId: exercise._id,
-                                                            type: exercise.type,
-                                                            points: exercise.points
-                                                        }
-                                                    })
-                                                    window.location.assign('/profile')
-                                                }} as="button">ADD</Dropdown.Item>
-                                            </DropdownButton>
-                                         */}
                                     </div>
                                 </Card.Body>
-                                                                       
                                 <Button variant='success' onClick={async () => {
-                                        await addExerciseToStats({
-                                            variables: {
-                                                exerciseId: exercise._id,
-                                                type: exercise.type,
-                                                points: exercise.points
-                                            }
-                                        })
-                                        window.location.assign('/profile')
-                                    }} as="button">+
-                                    </Button>
+                                    await addExerciseToStats({
+                                        variables: {
+                                            exerciseId: exercise._id,
+                                            type: exercise.type,
+                                            points: exercise.points
+                                        }
+                                    })
+                                    window.location.assign('/profile')
+                                }} as="button">+
+                                </Button>
                             </Card>
                         </Col>
                     ))}
@@ -195,15 +152,5 @@ const Profile = () => {
         </Container >
     );
 };
-
-
-
-
-
-
-
-
-
-
 
 export default Profile;
