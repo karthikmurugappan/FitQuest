@@ -67,3 +67,22 @@ mutation AddExerciseToStats($exerciseId: String, $type: String, $points: Int) {
   }
 }
 `;
+
+//remove exercise from stats
+export const REMOVE_EXERCISE_FROM_STATS = gql`
+mutation removeExerciseFromStats($exerciseId: String, $type: String, $points: Int) {
+  removeExerciseFromStats(exercise_id: $exerciseId, type: $type, points: $points) {
+    exercises {
+      _id
+      exercise_name
+    }
+    stamina
+    strength
+    agility
+    user_id {
+      _id
+      username
+    }
+  }
+}
+`;
