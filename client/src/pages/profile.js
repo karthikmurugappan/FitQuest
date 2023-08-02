@@ -78,7 +78,7 @@ const Profile = () => {
                  {userInfo.stamina} */}
                     </div>
                 )}
-                <div className="pb-4">
+                <div className="pb-4 scroll" >
                     <Row>
                         <Col xs={3} className="e-header">
                             Name
