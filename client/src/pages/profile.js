@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // This imports the two queries in use on the page.
 import { QUERY_ME, QUERY_EXERCISES } from '../utils/queries';
-import { ADD_EXERCISE_TO_STATS } from '../utils/mutations';
+import { ADD_EXERCISE_TO_STATS, REMOVE_EXERCISE_FROM_STATS } from '../utils/mutations';
 
 // Auth function uses the token to identify the "me" user.
 import Auth from '../utils/auth';
@@ -21,6 +21,7 @@ import Auth from '../utils/auth';
 const Profile = () => {
 
     const [addExerciseToStats] = useMutation(ADD_EXERCISE_TO_STATS);
+    const [removeExerciseFromStats] = useMutation(REMOVE_EXERCISE_FROM_STATS);
 
     const { loading, data } = useQuery(QUERY_EXERCISES, {
         fetchPolicy: "no-cache"
@@ -111,9 +112,17 @@ const Profile = () => {
                                     {exerciseList.description}
                                 </Col>
                                 <Col>
-                                <Button variant="danger">
-                            -
-                            </Button>
+                                    <Button variant='danger' onClick={async () => {
+                                        await removeExerciseFromStats({
+                                            variables: {
+                                                exerciseId: exerciseList._id,
+                                                type: exerciseList.type,
+                                                points: exerciseList.points
+                                            }
+                                        })
+                                        window.location.assign('/profile')
+                                    }} as="button">-
+                                    </Button>
                                 </Col>
                             </Row>
                         </div>
@@ -155,14 +164,14 @@ This link will need to change.
                                         <DropdownButton id="dropdown-item-button" title="Dropdown button">
                                             <Dropdown.ItemText>Actions</Dropdown.ItemText>
                                             <Dropdown.Item onClick={async () => {
-                                             await addExerciseToStats({
-                                                 variables: { 
-                                                    exerciseId: exercise._id,
-                                                     type: exercise.type,
-                                                      points: exercise.points
-                                                     }
-                                                     })
-                                                     window.location.assign('/profile')
+                                                await addExerciseToStats({
+                                                    variables: {
+                                                        exerciseId: exercise._id,
+                                                        type: exercise.type,
+                                                        points: exercise.points
+                                                    }
+                                                })
+                                                window.location.assign('/profile')
                                             }} as="button">ADD</Dropdown.Item>
                                         </DropdownButton>
                                     </Card.Body>
