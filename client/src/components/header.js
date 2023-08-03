@@ -9,6 +9,7 @@ function ActiveNavBar() {
 
   const isLoggedIn = AuthService.loggedIn();
   const userName = isLoggedIn ? AuthService.getProfile().username : null;
+  // console.log(userName)
   const handleLogout = () => {
     AuthService.logout();
     window.location.href = '/'

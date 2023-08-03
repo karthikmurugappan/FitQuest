@@ -12,6 +12,7 @@ function Leaderboard() {
   const { loading, error, data } = useQuery(QUERY_ALL_STATS, {
     fetchPolicy: "no-cache"
   });
+  console.log(data)
   const statList = data?.allStats || [];
 
   if (loading) return <p>Loading...</p>;
@@ -20,6 +21,7 @@ function Leaderboard() {
     (a, b) => (b.strength + b.agility + b.stamina) - (a.strength + a.agility + a.stamina)
   );
 
+  console.log(sortedStatList)
 
   const topUsers = sortedStatList.slice(0, 10);
   return (
