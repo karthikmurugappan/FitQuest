@@ -30,8 +30,8 @@ function Leaderboard() {
           <div key={statList.id} className="row pt-3 pb-3 rpgui-container framed-golden">
             <div className="user-name">{statList.user_id.username}</div>
             <div className="stat-list col text-info text-center rpgui-container framed-golden">Strength: {statList.strength}</div>
-            <div className="stat-list col text-info text-center rpgui-container framed-golden">Agility: {statList.agility}</div>
-            <div className="stat-list col text-info text-center rpgui-container framed-golden">Stamina: {statList.stamina}</div>
+            <div className="stat-list col text-warning text-center rpgui-container framed-golden">Stamina: {statList.stamina}</div>
+            <div className="stat-list col text-danger text-center rpgui-container framed-golden">Agility: {statList.agility}</div>
           </div>
         ))}
       </div>
